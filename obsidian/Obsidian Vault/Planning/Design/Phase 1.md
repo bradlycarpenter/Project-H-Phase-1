@@ -1,0 +1,8 @@
+- Top Down
+- 2D Sprites
+- Minimal Animation Frames
+- Figure out game logic
+- Multiplayer?
+- Importing Assets
+- Hitboxes
+- Hurtboxes
