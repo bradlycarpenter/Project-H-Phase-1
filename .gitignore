@@ -42,8 +42,6 @@ null*
 .DS_Store
 
 .obsidian/themes
-.obsidian/appearance.json
-.obsidian/workspace.json
-Hadeez Nuts Vault/Hadeez-Nuts Vault/.obsidian/workspace.json
-/Hadeez Nuts Vault/Hadeez-Nuts Vault/.obsidian
-/Hadeez Nuts Vault/Hadeez-Nuts Vault/.obsidian
+.appearance.json
+.workspace.json
+
