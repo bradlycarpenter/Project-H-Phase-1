@@ -22,3 +22,5 @@ Chubbles (2D Pixel Artist, Game Designer)
 
 Sins (Sound Designer)
 "Sound Man"
+
+Nice adjustment
