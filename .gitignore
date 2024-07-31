@@ -1,6 +1,4 @@
 # Godot 4+ specific ignores
 .godot/
-
-
 .obsidian/workspace
-.obsidian/workspace.json
+
