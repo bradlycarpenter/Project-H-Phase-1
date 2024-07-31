@@ -6,7 +6,6 @@ MAKE BRANCH
 1. Isometric Game (2D/3D Scene?)
 2. Placeholder Basic Assets (Berti)
 
-
 Role:
 
 Mince (CIO)
