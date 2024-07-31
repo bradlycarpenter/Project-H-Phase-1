@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "9353aedfa275671b",
+        "id": "61748a0c0b5fb020",
         "type": "tabs",
         "children": [
           {
-            "id": "de2c41d080410e62",
+            "id": "167e30ce83f914b7",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Welcome.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -85,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Welcome.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Welcome.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Welcome.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -146,11 +138,11 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "de2c41d080410e62",
+  "active": "167e30ce83f914b7",
   "lastOpenFiles": [
+    "Welcome.md",
     "Hello test.md",
     "Howsit Guys.md",
-    "New Text Document.txt",
-    "Welcome.md"
+    "New Text Document.txt"
   ]
 }
