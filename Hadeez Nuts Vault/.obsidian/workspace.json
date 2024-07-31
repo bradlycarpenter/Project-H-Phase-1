@@ -1,19 +1,19 @@
 {
   "main": {
-    "id": "68d28b9172e5ab11",
+    "id": "4575eb13523b282d",
     "type": "split",
     "children": [
       {
-        "id": "85e5746fd6c2ff39",
+        "id": "639a31191bb6c87c",
         "type": "tabs",
         "children": [
           {
-            "id": "7ab4460b04ac038e",
+            "id": "aeb21aa78d842556",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Hadeez-Nuts Vault/Hello test.md",
+                "file": "Welcome.md",
                 "mode": "source",
                 "source": false
               }
@@ -25,15 +25,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "e0382b4f41b35888",
+    "id": "dc1f9b404a13af10",
     "type": "split",
     "children": [
       {
-        "id": "95b7f895f622a0b2",
+        "id": "ebaafbf76da11eac",
         "type": "tabs",
         "children": [
           {
-            "id": "6e2a11840e596c32",
+            "id": "fa94b792b157ebf6",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -43,7 +43,7 @@
             }
           },
           {
-            "id": "7105ce9cd80cbc3f",
+            "id": "5b7d9f2a77d40c7a",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -58,7 +58,7 @@
             }
           },
           {
-            "id": "0deee14159b71b46",
+            "id": "439903fdcac50aad",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -69,23 +69,23 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 427.5
   },
   "right": {
-    "id": "1c5afbf5706069aa",
+    "id": "2605373481cb9ca4",
     "type": "split",
     "children": [
       {
-        "id": "6566e600c6f37f11",
+        "id": "ca0944b1ee1cdd41",
         "type": "tabs",
         "children": [
           {
-            "id": "bd9077ce388ff0e9",
+            "id": "0a9bdd53eee4027a",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Hadeez-Nuts Vault/Hello test.md",
+                "file": "Welcome.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,19 +97,19 @@
             }
           },
           {
-            "id": "c636e4d237086c6c",
+            "id": "3161a84f2e735d20",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Hadeez-Nuts Vault/Hello test.md",
+                "file": "Welcome.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
             }
           },
           {
-            "id": "c1cc80bdf3ef456d",
+            "id": "2f2e91a35dbb961d",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -120,12 +120,12 @@
             }
           },
           {
-            "id": "e00044f47f661daa",
+            "id": "e778f07d4d9a09f4",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "Hadeez-Nuts Vault/Hello test.md"
+                "file": "Welcome.md"
               }
             }
           }
@@ -146,11 +146,11 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "6e2a11840e596c32",
+  "active": "aeb21aa78d842556",
   "lastOpenFiles": [
-    "Hadeez-Nuts Vault/Howsit Guys.md",
-    "Hadeez-Nuts Vault/Hello test.md",
-    "Hadeez-Nuts Vault/Welcome.md",
-    "testing tangs.md"
+    "Hello test.md",
+    "Howsit Guys.md",
+    "Welcome.md",
+    "New Text Document.txt"
   ]
 }
