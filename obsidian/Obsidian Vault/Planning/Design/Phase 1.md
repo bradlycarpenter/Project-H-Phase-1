@@ -1,8 +1,9 @@
-- Top Down
+- Top Down (not directly top down, think pokemon-esque)
 - 2D Sprites
 - Minimal Animation Frames
 - Figure out game logic
-- Multiplayer?
+- Multiplayer? (Hosted on server preferably, but look into p2p)
 - Importing Assets
 - Hitboxes
 - Hurtboxes
+- Level Design (Procedural generation/custom maps)
