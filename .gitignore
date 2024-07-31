@@ -1,5 +1,6 @@
 # Godot 4+ specific ignores
 .godot/
 
-.obsidian/workspace
-/Hadeez Nuts Vault/Hadeez-Nuts Vault/.obsidian
+
+Hadeez Nuts Vault/Hadeez Nuts Vault/.obsidian/workspace.json
+
