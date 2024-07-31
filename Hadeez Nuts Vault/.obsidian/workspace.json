@@ -13,26 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Hadeez-Nuts Vault/Howsit Guys.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "a5b4a61608934d6f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Hello test.md",
+                "file": "Hadeez-Nuts Vault/Hello test.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -98,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Hello test.md",
+                "file": "Hadeez-Nuts Vault/Hello test.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Hello test.md",
+                "file": "Hadeez-Nuts Vault/Hello test.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Hello test.md"
+                "file": "Hadeez-Nuts Vault/Hello test.md"
               }
             }
           }
@@ -159,11 +146,11 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "a5b4a61608934d6f",
+  "active": "6e2a11840e596c32",
   "lastOpenFiles": [
     "Hadeez-Nuts Vault/Howsit Guys.md",
-    "Hello test.md",
-    "testing tangs.md",
-    "Hadeez-Nuts Vault/Welcome.md"
+    "Hadeez-Nuts Vault/Hello test.md",
+    "Hadeez-Nuts Vault/Welcome.md",
+    "testing tangs.md"
   ]
 }
