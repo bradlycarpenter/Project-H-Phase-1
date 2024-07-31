@@ -6,7 +6,6 @@
       {
         "id": "dae1860ed4df257c",
         "type": "tabs",
-        "dimension": 64.84806629834254,
         "children": [
           {
             "id": "b097952ac6078792",
@@ -34,21 +33,6 @@
           }
         ],
         "currentTab": 1
-      },
-      {
-        "id": "401cd7094452c50b",
-        "type": "tabs",
-        "dimension": 35.151933701657455,
-        "children": [
-          {
-            "id": "88d84578c0be6687",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {}
-            }
-          }
-        ]
       }
     ],
     "direction": "vertical"
