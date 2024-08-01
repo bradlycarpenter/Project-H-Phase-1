@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var screen_size : Vector2
-var speed = 200
+var speed = 400
 
 func _ready():
 	screen_size = get_viewport_rect().size
@@ -18,9 +18,9 @@ func _physics_process(delta):
 		$AnimatedSprite2D.play()
 		position.x += speed * delta
 		if Input.is_action_pressed("up"):
-			position.y -= speed * delta
+			position.y -= speed * delta * 0.5
 		elif Input.is_action_pressed("down"):
-			position.y += speed * delta
+			position.y += speed * delta * 0.5
 			
 	elif Input.is_action_pressed("left"):
 		$AnimatedSprite2D.flip_h = true
@@ -28,9 +28,9 @@ func _physics_process(delta):
 		$AnimatedSprite2D.play()
 		position.x -= speed * delta
 		if Input.is_action_pressed("up"):
-			position.y -= speed * delta
+			position.y -= speed * delta * 0.5
 		elif Input.is_action_pressed("down"):
-			position.y += speed * delta
+			position.y += speed * delta * 0.5
 			
 	elif Input.is_action_pressed("down"):
 		$AnimatedSprite2D.animation = "walk_down"
