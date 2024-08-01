@@ -1,3 +1,0 @@
-- Isometric
-- 2D Sprites 
-- Minimal Animations

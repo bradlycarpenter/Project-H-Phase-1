@@ -1,1 +1,0 @@
-- In obsidian press `Ctrl + P` to add links to other documents
