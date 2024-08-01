@@ -1,8 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://b56dbrjbectha"]
+[gd_scene load_steps=3 format=3 uid="uid://b56dbrjbectha"]
 
 [ext_resource type="PackedScene" uid="uid://ca8ujpslwc6jb" path="res://Scenes/Player.tscn" id="1_gafb4"]
+[ext_resource type="PackedScene" uid="uid://ckur41xlpelre" path="res://scenes/world.tscn" id="2_ider3"]
 
 [node name="Main" type="Node"]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_gafb4")]
 position = Vector2(532, 287)
+
+[node name="TileMap" parent="." instance=ExtResource("2_ider3")]
+visible = false
+layer_0/tile_data = PackedInt32Array(393216, 262144, 4, 393224, 262144, 4, 393226, 262144, 4, 393228, 262144, 4, 393230, 262144, 4, 0, 262144, 4, 983067, 262144, 4, 1114143, 262144, 4, 262151, 65536, 2, 262152, 65536, 2, 262153, 131072, 2, 327688, 65536, 2, 327689, 131072, 2)
