@@ -3,10 +3,9 @@ extends CharacterBody2D
 var speed = 85
 var player_chase =  false
 var Player = null
-var direction : Vector2 = Vector2.ZERO
-	
-	
-func _physics_process(delta):
+var direction : Vector2
+
+func _physics_process(_delta):
 	if player_chase:
 		# Move towards the player
 		position += (Player.position - position) / speed
@@ -29,13 +28,10 @@ func _physics_process(delta):
 	else:
 		$AnimatedSprite2D.stop()
 
-	
-
 func _on_detection_area_body_entered(body):
 	Player = body
 	player_chase = true
-	
-func _on_detection_area_body_exited(body):
+
+func _on_detection_area_body_exited(_body):
 	Player = null
 	player_chase = false
-

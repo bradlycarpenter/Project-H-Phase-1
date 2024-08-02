@@ -30,8 +30,6 @@ func _spriteSelect():
 		$AnimatedSprite2D.animation = "walk_down"
 	elif direction.x != 0:  # When moving horizontally
 		$AnimatedSprite2D.animation = "walk_right"
-	else:  # When no direction is pressed
-		$AnimatedSprite2D.stop()
 
 func _physics_process(_delta):
 	#limit movement to window size
