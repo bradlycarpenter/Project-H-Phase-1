@@ -1,46 +1,39 @@
 extends CharacterBody2D
 
 var screen_size : Vector2
-var speed = 400
+var speed = 5
+var direction : Vector2
 
 func _ready():
 	screen_size = get_viewport_rect().size
 	position = screen_size / 2
 
-func _physics_process(delta):
-	#limit movement to window size
-	position = position.clamp(Vector2.ZERO, screen_size)
-	
-	# Determine the direction of the animation based on the input using if-elif
-	if Input.is_action_pressed("right"):
-		$AnimatedSprite2D.flip_h = false
-		$AnimatedSprite2D.animation = "walk_right"
+func _movement():
+	direction = Input.get_vector("left", "right", "up", "down")
+	velocity = direction * speed
+	position += velocity
+	if direction:
 		$AnimatedSprite2D.play()
-		position.x += speed * delta
-		if Input.is_action_pressed("up"):
-			position.y -= speed * delta * 0.5
-		elif Input.is_action_pressed("down"):
-			position.y += speed * delta * 0.5
-			
-	elif Input.is_action_pressed("left"):
-		$AnimatedSprite2D.flip_h = true
-		$AnimatedSprite2D.animation = "walk_left"
-		$AnimatedSprite2D.play()
-		position.x -= speed * delta
-		if Input.is_action_pressed("up"):
-			position.y -= speed * delta * 0.5
-		elif Input.is_action_pressed("down"):
-			position.y += speed * delta * 0.5
-			
-	elif Input.is_action_pressed("down"):
-		$AnimatedSprite2D.animation = "walk_down"
-		$AnimatedSprite2D.play()
-		position.y += speed * delta
-		
-	elif Input.is_action_pressed("up"):
-		$AnimatedSprite2D.animation = "walk_up"
-		$AnimatedSprite2D.play()
-		position.y -= speed * delta
 	else:
 		$AnimatedSprite2D.stop()
-		$AnimatedSprite2D.frame = 0
+
+func _spriteDirection():
+	if (!$AnimatedSprite2D.flip_h and direction.x < 0):
+		$AnimatedSprite2D.flip_h = true
+	elif ($AnimatedSprite2D.flip_h and direction.x > 0):
+		$AnimatedSprite2D.flip_h = false
+
+func _spriteSelect():
+	if direction.y < 0:
+		$AnimatedSprite2D.animation = "walk_up"
+	elif direction.y > 0:
+		$AnimatedSprite2D.animation = "walk_down"
+	else:
+		$AnimatedSprite2D.animation = "walk_right"
+
+func _physics_process(_delta):
+	#limit movement to window size
+	position = position.clamp(Vector2.ZERO, screen_size)
+	_movement()
+	_spriteDirection()
+	_spriteSelect()
