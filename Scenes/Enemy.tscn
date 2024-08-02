@@ -164,7 +164,7 @@ script = ExtResource("1_2i0b5")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -1)
 sprite_frames = SubResource("SpriteFrames_7f5ss")
-animation = &"walk_up"
+animation = &"idle"
 offset = Vector2(0, -60)
 
 [node name="detection_area" type="Area2D" parent="."]

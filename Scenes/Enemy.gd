@@ -7,18 +7,28 @@ var direction : Vector2 = Vector2.ZERO
 	
 	
 func _physics_process(delta):
-	
 	if player_chase:
-		position += (Player.position - position)/speed
+		# Move towards the player
+		position += (Player.position - position) / speed
 		
-		$AnimatedSprite2D.play("walk_left")
-		
-		if(Player.position.x - position.x) < 0:
-			$AnimatedSprite2D.flip_h = true #left
+		# Determine which animation to play
+		if abs(Player.position.x - position.x) > abs(Player.position.y - position.y):
+			# Horizontal movement
+			if Player.position.x < position.x:
+				$AnimatedSprite2D.play("walk_right")
+				$AnimatedSprite2D.flip_h = true  # Facing left
+			else:
+				$AnimatedSprite2D.play("walk_right")
+				$AnimatedSprite2D.flip_h = false  # Facing right
 		else:
-			$AnimatedSprite2D.flip_h = false #right
+			# Vertical movement
+			if Player.position.y < position.y:
+				$AnimatedSprite2D.play("walk_up")
+			else:
+				$AnimatedSprite2D.play("walk_down")
 	else:
-		$AnimatedSprite2D.play("idle")
+		$AnimatedSprite2D.stop()
+
 	
 
 func _on_detection_area_body_entered(body):
