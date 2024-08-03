@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ca8ujpslwc6jb" path="res://Scenes/Player.tscn" id="1_gafb4"]
 [ext_resource type="Script" path="res://Scenes/Main.gd" id="1_unthp"]
 [ext_resource type="PackedScene" uid="uid://ckur41xlpelre" path="res://Scenes/world.tscn" id="2_ider3"]
-[ext_resource type="PackedScene" uid="uid://dywxweebgmcak" path="res://Scenes/enemy_spawner.tscn" id="4_4knxp"]
+[ext_resource type="PackedScene" uid="uid://5iwujcjyc3fx" path="res://Scenes/Enemy.tscn" id="3_h13r5"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_unthp")
@@ -14,4 +14,4 @@ layer_0/tile_data = PackedInt32Array(983067, 262144, 4, 1114143, 262144, 4, 2621
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_gafb4")]
 position = Vector2(532, 287)
 
-[node name="Node2D" parent="." instance=ExtResource("4_4knxp")]
+[node name="Enemy" parent="." instance=ExtResource("3_h13r5")]
