@@ -43,3 +43,6 @@ func _on_detection_area_body_exited(body):
 	if body == player:
 		player = null
 		player_chase = false
+
+func _take_damage():
+	queue_free()

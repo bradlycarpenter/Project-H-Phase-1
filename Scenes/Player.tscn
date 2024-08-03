@@ -1,9 +1,28 @@
-[gd_scene load_steps=23 format=3 uid="uid://ca8ujpslwc6jb"]
+[gd_scene load_steps=29 format=3 uid="uid://ca8ujpslwc6jb"]
 
 [ext_resource type="Script" path="res://Scenes/Player.gd" id="1_srdut"]
 [ext_resource type="Texture2D" uid="uid://cxg0hyqqbbxx2" path="res://assets/Player V01/SS_Player_Down/SS_Player_Down.png" id="2_5wwjf"]
 [ext_resource type="Texture2D" uid="uid://bscgj42iyjc5v" path="res://assets/Player V01/SS_Player_Side/Player_Side Spritesheet.png" id="3_uutyn"]
 [ext_resource type="Texture2D" uid="uid://c856yjtp803us" path="res://assets/Player V01/SS_Player_Up/SS_Player_Up.png" id="5_avpqh"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_e3g4c"]
+load_path = "res://.godot/imported/SS_Player_Left.png-fb095d55741298d2ef753b8a87093d80.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ixjy"]
+atlas = SubResource("CompressedTexture2D_e3g4c")
+region = Rect2(640, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7edxg"]
+atlas = SubResource("CompressedTexture2D_e3g4c")
+region = Rect2(480, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0uf54"]
+atlas = SubResource("CompressedTexture2D_e3g4c")
+region = Rect2(320, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_clxx4"]
+atlas = SubResource("CompressedTexture2D_e3g4c")
+region = Rect2(160, 0, 160, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v1tb7"]
 atlas = ExtResource("2_5wwjf")
@@ -71,6 +90,23 @@ region = Rect2(480, 0, 160, 160)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ttbmr"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ixjy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7edxg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0uf54")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_clxx4")
+}],
+"loop": true,
+"name": &"new_walk_left",
+"speed": 6.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_v1tb7")
@@ -143,14 +179,26 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_msben"]
 size = Vector2(49, 120)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x21me"]
+size = Vector2(49.5, 56)
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 3
 script = ExtResource("1_srdut")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ttbmr")
-animation = &"walk_left"
+animation = &"walk_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.5, -11)
 shape = SubResource("RectangleShape2D_msben")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="hitbox" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(48.75, 3)
+shape = SubResource("RectangleShape2D_x21me")
+disabled = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

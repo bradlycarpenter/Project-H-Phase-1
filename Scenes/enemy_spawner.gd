@@ -14,3 +14,4 @@ func _ready():
 	var enemy = enemy_scene.instantiate()
 	enemy.position = spawn.position
 	main.call_deferred("add_child", enemy)
+	
