@@ -57,7 +57,6 @@ atlas = ExtResource("4_lbpgh")
 region = Rect2(576, 0, 192, 193)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_e3g4c"]
-load_path = "res://.godot/imported/SS_Player_Left.png-fb095d55741298d2ef753b8a87093d80.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8ixjy"]
 atlas = SubResource("CompressedTexture2D_e3g4c")
