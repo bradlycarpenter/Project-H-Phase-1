@@ -14,4 +14,6 @@ layer_0/tile_data = PackedInt32Array(983067, 262144, 4, 1114143, 262144, 4, 2621
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_gafb4")]
 position = Vector2(532, 287)
 
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+
 [node name="Node2D" parent="." instance=ExtResource("4_4knxp")]

@@ -164,7 +164,7 @@ script = ExtResource("1_2i0b5")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -1)
 sprite_frames = SubResource("SpriteFrames_7f5ss")
-animation = &"idle"
+animation = &"walk_right"
 offset = Vector2(0, -60)
 
 [node name="detection_area" type="Area2D" parent="."]
@@ -178,6 +178,12 @@ shape = SubResource("CircleShape2D_gutnj")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(3.5, -60)
 shape = SubResource("RectangleShape2D_i6pir")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -17.0
+offset_top = -137.0
+offset_right = 23.0
+offset_bottom = -114.0
 
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]

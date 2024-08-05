@@ -5,8 +5,10 @@ var player_chase =  false
 var player = null
 var direction : Vector2
 var last_flip_h = false
+var health = 30
 
 func _physics_process(delta):
+	$Label.text = str(health)
 	if player_chase:
 		_movement(delta)
 		_update_animation()
@@ -44,5 +46,8 @@ func _on_detection_area_body_exited(body):
 		player = null
 		player_chase = false
 
-func _take_damage():
-	queue_free()
+func _take_damage(damage):
+	health -= damage  # Replace with your health variable
+	print(health)
+	if health <= 0:  # Check if health is depleted
+		queue_free()
