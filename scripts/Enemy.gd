@@ -48,6 +48,5 @@ func _on_detection_area_body_exited(body):
 
 func _take_damage(damage):
 	health -= damage  # Replace with your health variable
-	print(health)
 	if health <= 0:  # Check if health is depleted
 		queue_free()

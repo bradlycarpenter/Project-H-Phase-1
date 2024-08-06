@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var main = get_node("/root/Main")
 
-var enemy_scene := preload("res://scenes/Enemy.tscn")
+var enemy_scene := preload("res://scenes/enemy.tscn")
 var spawn_points := []
 # Called when the node enters the scene tree for the first time.
 func _ready():

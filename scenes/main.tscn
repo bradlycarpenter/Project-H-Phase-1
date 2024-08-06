@@ -1,12 +1,12 @@
 [gd_scene load_steps=5 format=3 uid="uid://b56dbrjbectha"]
 
 [ext_resource type="PackedScene" uid="uid://ca8ujpslwc6jb" path="res://scenes/Player.tscn" id="1_gafb4"]
-[ext_resource type="Script" path="res://scenes/Main.gd" id="1_unthp"]
+[ext_resource type="Script" path="res://scripts/Main.gd" id="1_rxnkp"]
 [ext_resource type="PackedScene" uid="uid://ckur41xlpelre" path="res://scenes/world.tscn" id="2_ider3"]
 [ext_resource type="PackedScene" uid="uid://dywxweebgmcak" path="res://scenes/enemy_spawner.tscn" id="4_4knxp"]
 
 [node name="Main" type="Node"]
-script = ExtResource("1_unthp")
+script = ExtResource("1_rxnkp")
 
 [node name="TileMap" parent="." instance=ExtResource("2_ider3")]
 layer_0/tile_data = PackedInt32Array(983067, 262144, 4, 1114143, 262144, 4, 262144, 0, 2, 262145, 65536, 2, 262146, 65536, 2, 262147, 65536, 2, 262148, 131072, 2, 196612, 131072, 1, 131076, 131072, 1, 65540, 131072, 1, 4, 131072, 0, 196610, 65536, 1, 196611, 65536, 1, 131075, 65536, 1, 196609, 65536, 1, 196608, 0, 1, 131072, 0, 1, 65536, 0, 1, 0, 0, 0, 1, 65536, 0, 2, 65536, 0, 3, 65536, 0, 131073, 65536, 1, 131074, 65536, 1, 65537, 65536, 1, 65538, 65536, 1, 65539, 65536, 1)
