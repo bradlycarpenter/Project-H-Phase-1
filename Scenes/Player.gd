@@ -8,12 +8,25 @@ var attacking = false
 var attack_animation = ""
 var attack_duration = 0.5  # Duration of the attack animation in seconds
 var attack_timer = 0.0
+@onready var footstep_player = $FootstepPlayer
 
 func _ready():
 	screen_size = get_viewport_rect().size
 	position = screen_size / 2
+	
 
-func _process(delta):
+func _physics_process(delta):
+	movement(delta)
+	spriteDirection()
+	spriteSelect()
+	attack(delta)
+	playerAudio()
+
+func playerAudio():
+	if direction and !footstep_player.playing:
+		footstep_player.play()
+
+func attack(delta):
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and !attacking:
 		attacking = true
 		attack_animation = get_attack_animation()
@@ -26,14 +39,14 @@ func _process(delta):
 			attacking = false
 			$Area2D/side_attack.disabled = true
 
-func _movement(delta):
+func movement(delta):
 	direction = Input.get_vector("left", "right", "up", "down")
 	if direction != Vector2.ZERO:
 		last_direction = direction  # Update last direction if movement is detected
 	velocity = direction * speed * delta
 	position += velocity 
 
-func _spriteDirection():
+func spriteDirection():
 	if direction.x < 0 and not $AnimatedSprite2D.flip_h:
 		$AnimatedSprite2D.flip_h = true
 		$Area2D.scale.x = -1
@@ -41,7 +54,7 @@ func _spriteDirection():
 		$AnimatedSprite2D.flip_h = false
 		$Area2D.scale.x = 1
 
-func _spriteSelect():
+func spriteSelect():
 	if attacking:
 		if not $AnimatedSprite2D.is_playing() or $AnimatedSprite2D.animation != attack_animation:
 			$AnimatedSprite2D.play(attack_animation)
@@ -51,21 +64,10 @@ func _spriteSelect():
 	else:
 		if direction:
 			$AnimatedSprite2D.play()
-			if direction.y < 0:
-				$AnimatedSprite2D.animation = "walk_up"
-			elif direction.y > 0:
-				$AnimatedSprite2D.animation = "walk_down"
-			elif direction.x != 0:
+			if direction.x != 0:
 				$AnimatedSprite2D.animation = "walk_right"
 		else:
 			$AnimatedSprite2D.stop()
-		
-func _physics_process(delta):
-	# Limit movement to window size
-	position = position.clamp(Vector2.ZERO, screen_size)
-	_movement(delta)
-	_spriteDirection()
-	_spriteSelect()
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("Hit"):
