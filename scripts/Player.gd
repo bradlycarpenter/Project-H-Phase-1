@@ -10,6 +10,7 @@ var attack_duration := 0.5  # Duration of the attack animation in seconds
 var attack_timer := 0.0
 @onready var footstep_player = $FootstepPlayer
 @onready var timer = $Timer
+@onready var sword_sfx = $SwordSFXPlayer
 
 
 func _ready():
@@ -29,6 +30,9 @@ func playerAudio():
 		footstep_player.pitch_scale = randf_range(0.8, 1.2)
 		footstep_player.play()
 		timer.start(0.3 * (speed * 0.01))
+	if attacking && !sword_sfx.playing:
+		sword_sfx.pitch_scale  = randf_range(0.8, 1.2)
+		sword_sfx.play()
 
 func attack(delta):
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and !attacking:
