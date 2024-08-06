@@ -27,7 +27,7 @@ func playerAudio():
 	if direction and timer.is_stopped():
 		footstep_player.pitch_scale = randf_range(0.8, 1.2)
 		footstep_player.play()
-		timer.start(0.5)
+		timer.start(0.3 * (speed * 0.01))
 
 func attack(delta):
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and !attacking:
