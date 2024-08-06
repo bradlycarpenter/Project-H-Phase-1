@@ -7,6 +7,16 @@ var direction : Vector2
 var last_flip_h = false
 var health = 30
 
+@export var damage_shader: Shader
+var original_material: ShaderMaterial
+var shader_applied: bool = false
+
+func _ready():
+	# Save the original material if needed
+	if $AnimatedSprite2D.material and $AnimatedSprite2D.material is ShaderMaterial:
+		original_material = $AnimatedSprite2D.material
+
+
 func _physics_process(delta):
 	$Label.text = str(health)
 	if player_chase:
@@ -46,7 +56,19 @@ func _on_detection_area_body_exited(body):
 		player = null
 		player_chase = false
 
-func _take_damage(damage):
-	health -= damage  # Replace with your health variable
-	if health <= 0:  # Check if health is depleted
+func take_damage(damage):
+	if damage_shader:
+		if not shader_applied:
+			# Apply the damage shader for one frame
+			var shader_material = ShaderMaterial.new()
+			shader_material.shader = damage_shader
+			$AnimatedSprite2D.material = shader_material
+			shader_applied = true
+			
+			# Schedule to revert the material in the next frame
+			await get_tree().create_timer(0.075).timeout
+			$AnimatedSprite2D.material = original_material
+			shader_applied = false
+	health -= damage
+	if health <= 0:
 		queue_free()

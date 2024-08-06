@@ -21,8 +21,8 @@ buses/default_bus_layout="res://audio_busses/default_bus_layout.tres"
 
 [display]
 
-window/size/viewport_width=800
-window/size/viewport_height=800
+window/size/viewport_width=1280
+window/size/viewport_height=720
 
 [filesystem]
 
