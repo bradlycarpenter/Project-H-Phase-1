@@ -1,15 +1,16 @@
 extends CharacterBody2D
 
 var screen_size : Vector2
-var speed = 300
+var speed:= 300
 var direction : Vector2
 var last_direction : Vector2 = Vector2.ZERO  # Store the last movement direction
-var attacking = false
-var attack_animation = ""
-var attack_duration = 0.5  # Duration of the attack animation in seconds
-var attack_timer = 0.0
+var attacking := false
+var attack_animation := ""
+var attack_duration := 0.5  # Duration of the attack animation in seconds
+var attack_timer := 0.0
 @onready var footstep_player = $FootstepPlayer
 @onready var timer = $Timer
+
 
 func _ready():
 	screen_size = get_viewport_rect().size
