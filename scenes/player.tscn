@@ -235,7 +235,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"walk_right",
-"speed": 4.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -292,15 +292,14 @@ stream_0/weight = 1.0
 stream_1/stream = ExtResource("14_4adi1")
 stream_1/weight = 1.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+scale = Vector2(1.2, 1.2)
 collision_layer = 3
 script = ExtResource("1_2xrff")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ttbmr")
-animation = &"attack_side"
-frame = 4
-frame_progress = 1.0
+animation = &"attack_up"
 
 [node name="hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 27)

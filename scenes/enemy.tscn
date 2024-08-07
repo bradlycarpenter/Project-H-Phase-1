@@ -1,14 +1,35 @@
-[gd_scene load_steps=26 format=3 uid="uid://5iwujcjyc3fx"]
+[gd_scene load_steps=32 format=3 uid="uid://5iwujcjyc3fx"]
 
 [ext_resource type="Script" path="res://scripts/Enemy.gd" id="1_2i0b5"]
 [ext_resource type="Texture2D" uid="uid://du1bvurf5l8jr" path="res://assets/animation/Enemy V01/SS_Enemy_Down/SS_Enemy_Down.png" id="1_xhjb2"]
 [ext_resource type="Texture2D" uid="uid://43nnsvoegapr" path="res://assets/animation/Enemy V01/SS_Enemy_Side/Enemy_side Spritesheet.png" id="2_e5vmf"]
 [ext_resource type="Shader" path="res://assets/shaders/enemy_damage.gdshader" id="2_r1jmj"]
 [ext_resource type="Texture2D" uid="uid://bwe6rto3fcx2n" path="res://assets/animation/Enemy V01/SS_Enemy_Up/SS_Enemy_Up.png" id="3_4igth"]
+[ext_resource type="Texture2D" uid="uid://befqsj341lj20" path="res://assets/animation/ss_slime_side/ss_slime_side.png" id="4_idmh2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bfyh8"]
 atlas = ExtResource("1_xhjb2")
 region = Rect2(0, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnifj"]
+atlas = ExtResource("4_idmh2")
+region = Rect2(0, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_klddb"]
+atlas = ExtResource("4_idmh2")
+region = Rect2(160, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sojfa"]
+atlas = ExtResource("4_idmh2")
+region = Rect2(320, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3uth7"]
+atlas = ExtResource("4_idmh2")
+region = Rect2(480, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smywe"]
+atlas = ExtResource("4_idmh2")
+region = Rect2(640, 0, 160, 160)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eiidx"]
 atlas = ExtResource("1_xhjb2")
@@ -86,6 +107,26 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_tnifj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_klddb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sojfa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3uth7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smywe")
+}],
+"loop": true,
+"name": &"slime",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_eiidx")
 }, {
 "duration": 1.0,
@@ -157,7 +198,7 @@ animations = [{
 radius = 191.065
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i6pir"]
-size = Vector2(45, 110)
+size = Vector2(90, 100)
 
 [node name="Enemy" type="CharacterBody2D" groups=["Hit"]]
 script = ExtResource("1_2i0b5")
@@ -166,7 +207,8 @@ damage_shader = ExtResource("2_r1jmj")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -1)
 sprite_frames = SubResource("SpriteFrames_7f5ss")
-animation = &"walk_right"
+animation = &"slime"
+frame_progress = 0.830522
 offset = Vector2(0, -60)
 
 [node name="detection_area" type="Area2D" parent="."]
@@ -178,7 +220,7 @@ position = Vector2(1, -36)
 shape = SubResource("CircleShape2D_gutnj")
 
 [node name="hitbox" type="CollisionShape2D" parent="."]
-position = Vector2(3.5, -60)
+position = Vector2(-2, -45)
 shape = SubResource("RectangleShape2D_i6pir")
 
 [node name="Label" type="Label" parent="."]

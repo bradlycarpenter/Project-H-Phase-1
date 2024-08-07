@@ -19,13 +19,13 @@ var sword_sfx_played := false
 @onready var sprite = $AnimatedSprite2D
 
 # Use this variable to differentiate between Player 1 and Player 2
-@export var player_id : int = 1
+@export var player_id : int = 2
 
 func _ready():
 	screen_size = get_viewport_rect().size
 	position = screen_size / 2
 	if is_in_group("Player"):
-		print("Player 1: This node is in the Player group")
+		print("Player 2: This node is in the Player group")
 
 func _physics_process(delta):
 	movement(delta)
@@ -93,6 +93,7 @@ func spriteSelect():
 		else:
 			sprite.animation = "walk_down"
 			sprite.stop()
+
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("Hit"):
