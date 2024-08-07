@@ -1,16 +1,16 @@
 extends CharacterBody2D
 
-var speed = 85
-var player_chase = false
+var speed: int = 85
+var player_chase: bool = false
 var players : Array = []  # Array to store player references
 var direction : Vector2
-var last_flip_h = false
-var health = 30
+var last_flip_h: bool = false
+var health: int = 30
 
 @export var damage_shader: Shader
 var original_material: ShaderMaterial
 var shader_applied: bool = false
-@onready var animated_sprite_2d = $AnimatedSprite2D
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready():
 	# Save the original material if needed
@@ -38,7 +38,7 @@ func _movement(delta):
 				nearest_distance = distance
 
 		# Move towards the nearest player
-		var direction = (nearest_player.position - position).normalized()
+		direction = (nearest_player.position - position).normalized()
 		position += direction * speed * delta
 
 func _update_animation():
