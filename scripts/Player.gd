@@ -62,7 +62,11 @@ func attack(delta):
 			down_attack.disabled = true
 
 func movement(delta):
-	direction = Input.get_vector("left_" + str(player_id), "right_" + str(player_id), "up_" + str(player_id), "down_" + str(player_id))
+	direction = Input.get_vector("left_" + str(player_id)
+								, "right_" + str(player_id)
+								, "up_" + str(player_id)
+								, "down_" + str(player_id)
+								)
 	if direction != Vector2.ZERO:
 		last_direction = direction  # Update last direction if movement is detected
 	velocity = direction * speed * delta
