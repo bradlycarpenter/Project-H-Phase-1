@@ -5,16 +5,13 @@ extends Control
 @onready var setting_button := $MarginContainer/HBoxContainer/VBoxContainer/Setting_Button
 @onready var exit_button := $MarginContainer/HBoxContainer/VBoxContainer/Exit_Button
 @onready var margin_container := $MarginContainer
-
 @onready var setting_menu := $Setting_Menu
-
-
 @onready var start_level = preload("res://Scenes/main.tscn")
 
 func _ready():
 	handle_connecting_signals()
 	
-	
+
 func on_start_pressed() -> void:
 	get_tree().change_scene_to_packed(start_level)
 	
