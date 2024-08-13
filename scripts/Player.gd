@@ -46,7 +46,7 @@ func playerAudio():
 			sword_sfx_played = true
 
 func attack(delta):
-	if Input.is_action_just_pressed("attack_" + str(player_id)) and not attacking:
+	if Input.is_action_just_pressed("attack") and not attacking:
 		attacking = true
 		sword_sfx_played = false
 		attack_animation = get_attack_animation()
@@ -62,11 +62,12 @@ func attack(delta):
 			down_attack.disabled = true
 
 func movement(delta):
-	direction = Input.get_vector("left_" + str(player_id)
-								, "right_" + str(player_id)
-								, "up_" + str(player_id)
-								, "down_" + str(player_id)
-								)
+	direction = Input.get_vector(
+		"left",
+		"right",
+		"up",
+		"down",
+		)
 	if direction != Vector2.ZERO:
 		last_direction = direction  # Update last direction if movement is detected
 	velocity = direction * speed * delta
