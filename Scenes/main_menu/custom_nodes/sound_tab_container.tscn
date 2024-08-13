@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cbx2n121vhxdh"]
 
 [ext_resource type="Script" path="res://scripts/main_menu/SettingMenu.gd" id="1_22bet"]
-[ext_resource type="PackedScene" uid="uid://ciq103evednpw" path="res://Scenes/main_menu/options_menu.tscn" id="2_56kfi"]
+[ext_resource type="PackedScene" uid="uid://ciq103evednpw" path="res://scenes/main_menu/options_menu.tscn" id="2_56kfi"]
 
 [node name="Sound_Tab_Container" type="Control"]
 layout_mode = 3
