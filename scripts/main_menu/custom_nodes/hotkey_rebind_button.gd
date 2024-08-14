@@ -5,11 +5,6 @@ extends Control
 @onready var button = $HBoxContainer/Button
 @export var action_name : String = "left"
 
-func _ready():
-	set_process_unhandled_key_input(false)
-	set_action_name()
-	set_text_for_key()
-	
 func set_action_name() -> void:
 	label.text = "Unassigned"
 	
@@ -46,13 +41,18 @@ func _on_button_toggled(button_pressed):
 				i.set_process_unhandled_key_input(false)
 		set_text_for_key()
 
-func _unhandled_key_input(event):
-	rebind_action_key(event)
-	button.button_pressed = false
-
 func rebind_action_key(event) -> void:
 	InputMap.action_erase_events(action_name)
 	InputMap.action_add_event(action_name, event)
 	set_process_unhandled_key_input(false)
 	set_text_for_key()
 	set_action_name()
+
+func _unhandled_key_input(event):
+	rebind_action_key(event)
+	button.button_pressed = false
+
+func _ready():
+	set_process_unhandled_key_input(false)
+	set_action_name()
+	set_text_for_key()
