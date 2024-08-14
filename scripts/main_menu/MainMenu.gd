@@ -8,10 +8,6 @@ extends Control
 @onready var setting_menu := $Setting_Menu
 @onready var start_level = preload("res://scenes/main.tscn")
 
-func _ready():
-	handle_connecting_signals()
-	
-
 func on_start_pressed() -> void:
 	get_tree().change_scene_to_packed(start_level)
 	
@@ -32,3 +28,6 @@ func handle_connecting_signals() -> void:
 	setting_button.button_down.connect(on_setting_pressed)
 	exit_button.button_down.connect(on_exit_pressed)
 	setting_menu.exit_options_menu.connect(on_exit_settings_menu)
+
+func _ready():
+	handle_connecting_signals()

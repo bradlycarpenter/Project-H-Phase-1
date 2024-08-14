@@ -331,7 +331,7 @@ bus = &"SFX"
 [node name="SwordSFXPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_uq4tt")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="FootstepTimer" type="Timer" parent="."]
 one_shot = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

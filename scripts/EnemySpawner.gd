@@ -1,10 +1,10 @@
 extends Node2D
 
-@onready var main = get_node("/root/Main")
-
 var enemy_scene := preload("res://scenes/enemy.tscn")
 var spawn_points : Array = []
-# Called when the node enters the scene tree for the first time.
+
+@onready var main = get_node("/root/Main")
+
 func _ready():
 	for i in get_children():
 		if i is Marker2D:
@@ -14,4 +14,3 @@ func _ready():
 	var enemy = enemy_scene.instantiate()
 	enemy.position = spawn.position
 	main.call_deferred("add_child", enemy)
-	
