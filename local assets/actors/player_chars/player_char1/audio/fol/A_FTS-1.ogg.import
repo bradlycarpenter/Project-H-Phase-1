@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dddhr5uriep3e"
+path="res://.godot/imported/A_FTS-1.ogg-541ba79487d95515385fb36a19a482fe.oggvorbisstr"
+
+[deps]
+
+source_file="res://local assets/actors/player_chars/player_char1/audio/fol/A_FTS-1.ogg"
+dest_files=["res://.godot/imported/A_FTS-1.ogg-541ba79487d95515385fb36a19a482fe.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
