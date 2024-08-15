@@ -245,7 +245,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("are_attacks_2/csh_swr_2:disabled")
+tracks/4/path = NodePath("are_player_char1_2/csh_player_char1_2:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -253,18 +253,6 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("are_attacks_2:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_nrhfv"]
@@ -322,26 +310,14 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("are_attacks_2/csh_swr_2:disabled")
+tracks/4/path = NodePath("are_player_char1_2/csh_player_char1_2:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.8),
+"times": PackedFloat32Array(0, 0.2, 0.8),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("are_attacks_2:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, true, false]
 }
 
 [sub_resource type="Animation" id="Animation_yty1n"]
@@ -530,6 +506,7 @@ stream_1/stream = ExtResource("13_l2utm")
 
 [node name="cbd_player_char1_2" type="CharacterBody2D"]
 script = ExtResource("1_m7fu8")
+speed = null
 
 [node name="nod_player_char1_2" type="Node2D" parent="."]
 
@@ -547,12 +524,11 @@ animation = &"attack_vfx"
 shape = SubResource("CapsuleShape2D_0pg31")
 debug_color = Color(0, 1, 0, 0.2)
 
-[node name="are_attacks_2" type="Area2D" parent="."]
-visible = false
+[node name="are_player_char1_2" type="Area2D" parent="."]
 position = Vector2(48, 0)
 scale = Vector2(1, 1.39)
 
-[node name="csh_swr_2" type="CollisionShape2D" parent="are_attacks_2"]
+[node name="csh_player_char1_2" type="CollisionShape2D" parent="are_player_char1_2"]
 shape = SubResource("CircleShape2D_ep4mb")
 disabled = true
 debug_color = Color(0.984314, 0, 0, 0.294118)
@@ -573,14 +549,11 @@ parameters/conditions/swing = false
 [node name="asp_fts" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_vjqcp")
 volume_db = -12.552
-bus = &"SFX"
 
 [node name="asp_swr" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_eeu7y")
-volume_db = -6.276
-bus = &"SFX"
 
 [node name="tim_fts" type="Timer" parent="."]
 one_shot = true
 
-[connection signal="animation_finished" from="ant_player_char1" to="." method="_on_ant_player_char1_animation_finished"]
+[connection signal="finished" from="asp_swr" to="." method="_on_asp_swr_finished"]
