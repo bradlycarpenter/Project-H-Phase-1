@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhj66sqsbcd0m"]
+
+[ext_resource type="PackedScene" uid="uid://co2j7py00qwi5" path="res://local_assets/actors/enemy_spawner/src/nod_enemy_spawner_2.tscn" id="1_afpg7"]
+
+[node name="nod_enemy_test" type="Node"]
+
+[node name="nod_enemy_spawner_2" parent="." instance=ExtResource("1_afpg7")]
