@@ -8,8 +8,8 @@ var sprite_flipped : bool = false
 @export var speed : int = 30
 
 @onready var ant_player_char1 : AnimationTree = $ant_player_char1
-@onready var nod_player_char1_2 = $nod_player_char1_2
-@onready var are_player_char1_2 = $are_player_char1_2
+@onready var nod_player_char1_2 : Node2D = $nod_player_char1_2
+@onready var are_player_char1_2 : Area2D   = $are_player_char1_2
 
 func flip_sprite(dir: Vector2) -> void:
 	if ant_player_char1["parameters/playback"].get_current_node() != "attack":
