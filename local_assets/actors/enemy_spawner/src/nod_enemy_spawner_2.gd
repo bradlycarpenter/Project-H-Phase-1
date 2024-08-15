@@ -5,8 +5,7 @@ var enemy_scene := preload("res://local_assets/actors/enemy_chars/enemy_melee1/s
 var spawn_points : Array = []
 
 @onready var mrk_spawn1_2 = $mrk_spawn1_2
-@onready var mark_spawn2_2 = $mark_spawn2_2
-
+@onready var mark_spawn2_2 = $mrk_spawn2_2
 
 func _ready():
 	for i in get_children():

@@ -8,5 +8,5 @@ script = ExtResource("1_tl4ht")
 [node name="mrk_spawn1_2" type="Marker2D" parent="."]
 position = Vector2(1000, 500)
 
-[node name="mark_spawn2_2" type="Marker2D" parent="."]
+[node name="mrk_spawn2_2" type="Marker2D" parent="."]
 position = Vector2(200, 500)
