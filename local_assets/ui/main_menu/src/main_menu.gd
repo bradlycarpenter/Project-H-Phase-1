@@ -9,7 +9,7 @@ extends Control
 @onready var pup_option_menu: SettingMenu = $pup_option_menu
 
 
-const LEVEL_1 = preload("res://local assets/levels/level1/src/level1.tscn")
+const LEVEL_1 = preload("res://local_assets/levels/level1/src/level1.tscn")
 
 
 func on_start_pressed() -> void:
