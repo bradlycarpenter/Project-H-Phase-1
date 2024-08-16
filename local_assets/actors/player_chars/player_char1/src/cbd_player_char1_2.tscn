@@ -515,7 +515,6 @@ states/move/position = Vector2(539, 128)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_kwbax"), "idle", "move", SubResource("AnimationNodeStateMachineTransition_ci7nc"), "move", "idle", SubResource("AnimationNodeStateMachineTransition_5ji4n"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_7ap0k"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_0a80f"), "attack", "move", SubResource("AnimationNodeStateMachineTransition_spcmj"), "move", "attack", SubResource("AnimationNodeStateMachineTransition_8g38m")]
 graph_offset = Vector2(-29, -154)
 
-[node name="cbd_player_char1_2" type="CharacterBody2D" groups=["Player"]]
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_vjqcp"]
 streams_count = 5
 stream_0/stream = ExtResource("7_lhoj2")
@@ -529,7 +528,7 @@ streams_count = 2
 stream_0/stream = ExtResource("12_mpo66")
 stream_1/stream = ExtResource("13_l2utm")
 
-[node name="cbd_player_char1_2" type="CharacterBody2D"]
+[node name="cbd_player_char1_2" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_m7fu8")
 
 [node name="nod_player_char1_2" type="Node2D" parent="."]
@@ -571,7 +570,6 @@ parameters/conditions/idle = false
 parameters/conditions/is_moving = false
 parameters/conditions/swing = false
 
-[connection signal="body_entered" from="are_player_char1_2" to="." method="_on_area_player_char_1_2_body_entered"]
 [node name="asp_fts" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_vjqcp")
 volume_db = -12.552
@@ -585,4 +583,5 @@ bus = &"SFX"
 [node name="tim_fts" type="Timer" parent="."]
 one_shot = true
 
+[connection signal="body_entered" from="are_attacks_2" to="." method="_on_area_attacks_2_body_entered"]
 [connection signal="animation_finished" from="ant_player_char1" to="." method="_on_ant_player_char1_animation_finished"]
