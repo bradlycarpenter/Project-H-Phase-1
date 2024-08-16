@@ -11,7 +11,7 @@ var shader_applied: bool = false
 
 @export var damage_shader: Shader
 
-@onready var ans_enemy_melee1_2: AnimatedSprite2D= $nod_enemy_melee1_2/ans_enemy_melee1_2
+@onready var ans_enemy_ranged1_2: AnimatedSprite2D = $nod_enemy_ranged1_2/ans_enemy_ranged1_2
 
 @onready var lab_health = $lab_health
 
@@ -38,36 +38,32 @@ func _update_animation() -> void:
 			if distance < nearest_distance:
 				nearest_player = player
 				nearest_distance = distance
+
 		var new_flip_h = nearest_player.position.x < position.x
-		if abs(nearest_player.position.x - position.x) > abs(nearest_player.position.y - position.y):
-			# Horizontal movement
-			if new_flip_h != last_flip_h:
-				ans_enemy_melee1_2.flip_h = new_flip_h
-				last_flip_h = new_flip_h
-			ans_enemy_melee1_2.play("move")
-		else:
-			# Vertical movement
-			if nearest_player.position.y < position.y:
-				ans_enemy_melee1_2.play("move")
-			else:
-				ans_enemy_melee1_2.play("move")
+		if new_flip_h != last_flip_h:
+			ans_enemy_ranged1_2.flip_h = new_flip_h
+			last_flip_h = new_flip_h
+
+		ans_enemy_ranged1_2.play("move")
+
 
 func take_damage(damage) -> void:
 	if damage_shader:
-		print("Shader applied - melee")
+		print("Shader applied - ranged")
 		if not shader_applied:
-			# Apply the damage shader for one frame
+			# Apply the damage shader for a brief period
 			var shader_material = ShaderMaterial.new()
 			shader_material.shader = damage_shader
-			ans_enemy_melee1_2.material = shader_material
+			ans_enemy_ranged1_2.material = shader_material
 			shader_applied = true
 			# Schedule to revert the material in the next frame
 			await get_tree().create_timer(0.075).timeout
-			ans_enemy_melee1_2.material = original_material
+			ans_enemy_ranged1_2.material = original_material  # Fix here
 			shader_applied = false
 	health -= damage
 	if health <= 0:
 		queue_free()
+
 
 func _on_detection_area_body_entered(body):
 	if body.is_in_group("Player"):
@@ -84,8 +80,8 @@ func _on_detection_area_body_exited(body):
 
 func _ready():
 	# Save the original material if needed
-	if ans_enemy_melee1_2.material and ans_enemy_melee1_2.material is ShaderMaterial:
-		original_material = ans_enemy_melee1_2.material
+	if ans_enemy_ranged1_2.material and ans_enemy_ranged1_2.material is ShaderMaterial:
+		original_material = ans_enemy_ranged1_2.material
 
 func _physics_process(delta):
 	lab_health.text = str(health)
@@ -93,7 +89,7 @@ func _physics_process(delta):
 		_movement(delta)
 		_update_animation()
 	else:
-		ans_enemy_melee1_2.stop()
+		ans_enemy_ranged1_2.stop()
 
 
 func _on_area_detection_area_2_body_entered(body):
@@ -101,7 +97,6 @@ func _on_area_detection_area_2_body_entered(body):
 		if not players.has(body):
 			players.append(body)
 			player_chase = true
-
 
 func _on_area_detection_area_2_body_exited(body):
 	if body.is_in_group("Player"):

@@ -50,3 +50,10 @@ func _physics_process(delta):
 	move_and_slide()
 	if direction.x != 0:
 		flip_sprite(direction)
+
+
+func _on_area_player_char_1_2_body_entered(body):
+	if body.is_in_group("Enemy"):
+		body.take_damage(10)
+	else:
+		pass # Replace with function body.
