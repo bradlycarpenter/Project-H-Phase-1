@@ -1,0 +1,158 @@
+[gd_scene load_steps=22 format=3 uid="uid://bfnjj63j24r7o"]
+
+[ext_resource type="Script" path="res://local_assets/actors/enemy_chars/enemy_melee1/src/cbd_enemy_melee1_2.gd" id="1_67sb4"]
+[ext_resource type="Texture2D" uid="uid://ckujoketijgph" path="res://local_assets/actors/enemy_chars/enemy_melee1/art/move/ss_enemy_side.png" id="2_6g1ah"]
+[ext_resource type="Texture2D" uid="uid://dionnrusafoma" path="res://local_assets/actors/enemy_chars/enemy_melee1/art/death/ss_enemy_side_death.png" id="2_msdr1"]
+[ext_resource type="Shader" path="res://local_assets/actors/enemy_chars/enemy_melee1/art/shaders/take_damage.gdshader" id="2_sipwt"]
+[ext_resource type="Texture2D" uid="uid://dxbvgpus8yl2e" path="res://local_assets/actors/enemy_chars/enemy_melee1/art/idle/ss_enemy_side_idle.png" id="3_hxr2i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0g6ud"]
+atlas = ExtResource("2_msdr1")
+region = Rect2(0, 0, 160, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chk2f"]
+atlas = ExtResource("2_msdr1")
+region = Rect2(160, 0, 160, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yequo"]
+atlas = ExtResource("2_msdr1")
+region = Rect2(320, 0, 160, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6msee"]
+atlas = ExtResource("2_msdr1")
+region = Rect2(480, 0, 160, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oflhd"]
+atlas = ExtResource("2_msdr1")
+region = Rect2(640, 0, 160, 162)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_do741"]
+atlas = ExtResource("3_hxr2i")
+region = Rect2(0, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xx7cb"]
+atlas = ExtResource("3_hxr2i")
+region = Rect2(160, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eg05t"]
+atlas = ExtResource("3_hxr2i")
+region = Rect2(320, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fxmt"]
+atlas = ExtResource("3_hxr2i")
+region = Rect2(480, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_610t3"]
+atlas = ExtResource("2_6g1ah")
+region = Rect2(0, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_srr6f"]
+atlas = ExtResource("2_6g1ah")
+region = Rect2(160, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cftd2"]
+atlas = ExtResource("2_6g1ah")
+region = Rect2(320, 0, 160, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vdvi"]
+atlas = ExtResource("2_6g1ah")
+region = Rect2(480, 0, 160, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_otlqa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0g6ud")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_chk2f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yequo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6msee")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oflhd")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_do741")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xx7cb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eg05t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3fxmt")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_610t3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_srr6f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cftd2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7vdvi")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oc0uv"]
+radius = 187.003
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w5b5p"]
+radius = 21.0
+height = 130.0
+
+[node name="cbd_enemy_melee1_2" type="CharacterBody2D" groups=["Enemy"]]
+scale = Vector2(0.73, 0.73)
+script = ExtResource("1_67sb4")
+damage_shader = ExtResource("2_sipwt")
+
+[node name="nod_enemy_melee1_2" type="Node2D" parent="."]
+
+[node name="ans_enemy_melee1_2" type="AnimatedSprite2D" parent="nod_enemy_melee1_2"]
+sprite_frames = SubResource("SpriteFrames_otlqa")
+animation = &"death"
+
+[node name="are_detection_area_2" type="Area2D" parent="nod_enemy_melee1_2"]
+
+[node name="csh_detection_radius_2" type="CollisionShape2D" parent="nod_enemy_melee1_2/are_detection_area_2"]
+shape = SubResource("CircleShape2D_oc0uv")
+
+[node name="csh_hitbox_2" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -3)
+shape = SubResource("CapsuleShape2D_w5b5p")
+
+[node name="lab_health" type="Label" parent="."]
+offset_left = -12.0
+offset_top = -89.0
+offset_right = 41.0
+offset_bottom = -66.0
+metadata/_edit_use_anchors_ = true
+
+[connection signal="body_entered" from="nod_enemy_melee1_2/are_detection_area_2" to="." method="_on_area_detection_area_2_body_entered"]
+[connection signal="body_exited" from="nod_enemy_melee1_2/are_detection_area_2" to="." method="_on_area_detection_area_2_body_exited"]
