@@ -123,6 +123,7 @@ radius = 19.0
 height = 120.0
 
 [node name="cbd_enemy_ranged1_2" type="CharacterBody2D" groups=["Enemy"]]
+scale = Vector2(0.73, 0.73)
 script = ExtResource("1_dr38g")
 damage_shader = ExtResource("2_6qpmr")
 
