@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Project-H-Fixed"
-run/main_scene="res://local_assets/actors/enemy_chars/enemy_melee1/enemy_test/enemy_test_scene.tscn"
+run/main_scene="res://local_assets/ui/main_menu/src/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
