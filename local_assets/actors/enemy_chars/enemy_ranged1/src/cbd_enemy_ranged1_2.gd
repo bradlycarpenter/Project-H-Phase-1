@@ -1,5 +1,9 @@
 extends CharacterBody2D
 
+@export var coin_scene: PackedScene
+
+@export var damage_shader: Shader
+
 var speed: int = 85
 var player_chase: bool = false
 var players : Array = []
@@ -8,8 +12,6 @@ var last_flip_h: bool = false
 var health: int = 30
 var original_material: ShaderMaterial
 var shader_applied: bool = false
-
-@export var damage_shader: Shader
 
 @onready var ans_enemy_ranged1_2: AnimatedSprite2D = $nod_enemy_ranged1_2/ans_enemy_ranged1_2
 
@@ -46,7 +48,6 @@ func _update_animation() -> void:
 
 		ans_enemy_ranged1_2.play("move")
 
-
 func take_damage(damage) -> void:
 	if damage_shader:
 		print("Shader applied - ranged")
@@ -62,8 +63,10 @@ func take_damage(damage) -> void:
 			shader_applied = false
 	health -= damage
 	if health <= 0:
+		var coin_instance = coin_scene.instantiate()
+		coin_instance.position = global_position
+		get_parent().add_child(coin_instance)
 		queue_free()
-
 
 func _on_detection_area_body_entered(body):
 	if body.is_in_group("Player"):
