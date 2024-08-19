@@ -1,8 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://dxbjh5n25hhj7"]
+[gd_scene load_steps=3 format=3 uid="uid://dxbjh5n25hhj7"]
 
 [ext_resource type="PackedScene" uid="uid://dfet0hikqtik8" path="res://local_assets/actors/player_chars/player_char1/src/cbd_player_char1_2.tscn" id="1_egkof"]
+[ext_resource type="PackedScene" uid="uid://cqp2fxl062yjn" path="res://global_assets/ui/pause_menu/src/pause_menu.tscn" id="2_g3m71"]
 
 [node name="Level1" type="Node"]
 
 [node name="cbd_player_char1_2" parent="." instance=ExtResource("1_egkof")]
 position = Vector2(545, 291)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="pause_menu" parent="CanvasLayer" instance=ExtResource("2_g3m71")]
