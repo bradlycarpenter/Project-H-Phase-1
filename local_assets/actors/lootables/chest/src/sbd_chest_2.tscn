@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://ccbh2j41hm6yv"]
 
-[ext_resource type="Script" path="res://local_assets/actors/chest/src/sbd_chest_2.gd" id="1_w050j"]
-[ext_resource type="Texture2D" uid="uid://qanxh1805fcd" path="res://local_assets/actors/chest/art/ss_chest_open.png" id="2_tjcfp"]
-[ext_resource type="AudioStream" uid="uid://blxc0ut833d51" path="res://local_assets/actors/chest/sound/A_Chest.ogg" id="3_uhw24"]
+[ext_resource type="Script" path="res://local_assets/actors/lootables/chest/src/sbd_chest_2.gd" id="1_w050j"]
+[ext_resource type="Texture2D" uid="uid://qanxh1805fcd" path="res://local_assets/actors/lootables/chest/art/ss_chest_open.png" id="2_tjcfp"]
+[ext_resource type="AudioStream" uid="uid://blxc0ut833d51" path="res://local_assets/actors/lootables/chest/sound/A_Chest.ogg" id="3_uhw24"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xsqst"]
 atlas = ExtResource("2_tjcfp")

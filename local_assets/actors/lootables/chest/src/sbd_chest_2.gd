@@ -13,10 +13,9 @@ func _on_are_2_body_exited(_body: Node2D) -> void:
 	player_entered_area = false
 	
 
- #Add "Use" keybind before it can be opened.
-#func _input(event: InputEvent) -> void:
-	#if event.is_action_pressed("p1_use"):
-		#if player_entered_area and not chest_is_open:
-			#ans_chest_2.play()
-			#asp_chest_open.play()
-			#chest_is_open = true
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("p1_use"):
+		if player_entered_area and not chest_is_open:
+			ans_chest_2.play()
+			asp_chest_open.play()
+			chest_is_open = true
