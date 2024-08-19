@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcto3psg0mkqi"]
+
+[ext_resource type="Script" path="res://global_assets/ui/pause_menu/src/pause_menu_option.gd" id="1_vrbnh"]
+[ext_resource type="PackedScene" uid="uid://dirbsyidpd2qh" path="res://local_assets/ui/main_menu/src/pup_option_menu_container.tscn" id="2_2i588"]
+
+[node name="option_pause_menu_" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vrbnh")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Options"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="pup_options_menu_container" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_2i588")]
+process_mode = 3
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="exit_button" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Exit"
