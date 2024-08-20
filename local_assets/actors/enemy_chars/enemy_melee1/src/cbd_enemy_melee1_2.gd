@@ -50,7 +50,6 @@ func _update_animation() -> void:
 
 func take_damage(damage) -> void:
 	if damage_shader:
-		print("Shader applied - melee")
 		if not shader_applied:
 			# Apply the damage shader for one frame
 			var shader_material = ShaderMaterial.new()

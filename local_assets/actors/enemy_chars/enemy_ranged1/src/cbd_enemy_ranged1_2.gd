@@ -50,7 +50,6 @@ func _update_animation() -> void:
 
 func take_damage(damage) -> void:
 	if damage_shader:
-		print("Shader applied - ranged")
 		if not shader_applied:
 			# Apply the damage shader for a brief period
 			var shader_material = ShaderMaterial.new()
