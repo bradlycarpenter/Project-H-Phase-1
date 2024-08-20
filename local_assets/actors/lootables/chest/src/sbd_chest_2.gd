@@ -12,6 +12,9 @@ func _on_are_2_body_entered(_body: Node2D) -> void:
 func _on_are_2_body_exited(_body: Node2D) -> void:
 	player_entered_area = false
 	
+func _victory_menu() -> void:
+	get_tree().paused = true
+	get_tree().change_scene_to_file("res://local_assets/levels/victory_menu/pup_victory_menu.tscn")
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("p1_use"):
@@ -19,3 +22,4 @@ func _input(event: InputEvent) -> void:
 			ans_chest_2.play()
 			asp_chest_open.play()
 			chest_is_open = true
+			_victory_menu()
