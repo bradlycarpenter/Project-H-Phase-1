@@ -85,7 +85,3 @@ func _physics_process(delta):
 func _on_area_attacks_2_body_entered(body):
 	if body.is_in_group("Enemy"):
 		body.take_damage(10)
-
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	print("Im in")
