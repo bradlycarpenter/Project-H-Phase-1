@@ -36,6 +36,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8or3t"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mar6m"]
+radius = 6.69169
 
 [node name="sbd_chest_2" type="StaticBody2D"]
 script = ExtResource("1_w050j")
@@ -57,6 +58,3 @@ debug_color = Color(0.804805, 0.415205, 0.0824289, 0.42)
 [node name="asp_chest_open" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_uhw24")
 volume_db = -12.513
-
-[connection signal="body_entered" from="are_2" to="." method="_on_are_2_body_entered"]
-[connection signal="body_exited" from="are_2" to="." method="_on_are_2_body_exited"]

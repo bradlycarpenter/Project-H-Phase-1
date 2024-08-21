@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dypry7v5htku7"]
 
-[ext_resource type="Script" path="res://pup_victory_menu.gd" id="1_amkpa"]
+[ext_resource type="Script" path="res://local_assets/levels/victory_menu/pup_victory_menu.gd" id="1_amkpa"]
 
 [node name="pup_victory_menu" type="Control"]
 process_mode = 3
