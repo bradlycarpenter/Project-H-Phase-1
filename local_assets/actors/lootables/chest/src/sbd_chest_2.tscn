@@ -36,8 +36,11 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8or3t"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mar6m"]
+radius = 6.69169
 
 [node name="sbd_chest_2" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 5
 script = ExtResource("1_w050j")
 
 [node name="ans_chest_2" type="AnimatedSprite2D" parent="."]
@@ -49,6 +52,7 @@ shape = SubResource("RectangleShape2D_8or3t")
 
 [node name="are_2" type="Area2D" parent="."]
 scale = Vector2(10.465, 10.465)
+collision_layer = 4
 
 [node name="cob_open_area_2" type="CollisionShape2D" parent="are_2"]
 shape = SubResource("CircleShape2D_mar6m")

@@ -1,12 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://dxbjh5n25hhj7"]
+[gd_scene load_steps=4 format=3 uid="uid://dxbjh5n25hhj7"]
 
 [ext_resource type="PackedScene" uid="uid://dfet0hikqtik8" path="res://local_assets/actors/player_chars/player_char1/src/cbd_player_char1_2.tscn" id="1_egkof"]
+[ext_resource type="PackedScene" uid="uid://ccbh2j41hm6yv" path="res://local_assets/actors/lootables/chest/src/sbd_chest_2.tscn" id="2_a33re"]
 [ext_resource type="PackedScene" uid="uid://cqp2fxl062yjn" path="res://global_assets/ui/pause_menu/src/pause_menu.tscn" id="2_g3m71"]
 
 [node name="Level1" type="Node"]
 
 [node name="cbd_player_char1_2" parent="." instance=ExtResource("1_egkof")]
 position = Vector2(545, 291)
+collision_layer = 7
+collision_mask = 5
+
+[node name="sbd_chest_2" parent="." instance=ExtResource("2_a33re")]
+position = Vector2(724, 297)
+victory_node = "res://local_assets/levels/victory_menu/pup_victory_menu.tscn"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
