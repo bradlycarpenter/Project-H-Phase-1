@@ -1,19 +1,15 @@
 [gd_scene load_steps=4 format=3 uid="uid://bk7j16t6mvmbs"]
 
-[ext_resource type="Texture2D" uid="uid://sph4w7tmxc0e" path="res://local_assets/environments/grassy park/art/TM_Grass1.png" id="1_6e7sf"]
+[ext_resource type="Texture2D" uid="uid://sph4w7tmxc0e" path="res://local_assets/environments/grassy park/art/TM_Grass1.png" id="1_j4416"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ae5qg"]
-texture = ExtResource("1_6e7sf")
+texture = ExtResource("1_j4416")
 texture_region_size = Vector2i(192, 192)
 0:0/0 = 0
 1:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
 0:1/0 = 0
 1:1/0 = 0
 2:1/0 = 0
-4:1/0 = 0
-5:1/0 = 0
 0:2/0 = 0
 1:2/0 = 0
 2:2/0 = 0

@@ -1,3 +1,27 @@
-[gd_scene format=3 uid="uid://b772hrannal6c"]
+[gd_scene load_steps=4 format=3 uid="uid://b772hrannal6c"]
+
+[ext_resource type="Texture2D" uid="uid://sph4w7tmxc0e" path="res://local_assets/environments/grassy park/art/TM_Grass1.png" id="1_furou"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rjgdd"]
+texture = ExtResource("1_furou")
+texture_region_size = Vector2i(96, 96)
+9:0/size_in_atlas = Vector2i(1, 2)
+9:0/0 = 0
+9:0/0/texture_origin = Vector2i(0, 48)
+9:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-48, -144, 48, -144, 48, 48, -48, 48)
+10:0/size_in_atlas = Vector2i(1, 2)
+10:0/0 = 0
+10:0/0/texture_origin = Vector2i(0, 48)
+10:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-48, -144, 48, -144, 48, 48, -48, 48)
+8:0/size_in_atlas = Vector2i(1, 2)
+8:0/0 = 0
+8:0/0/texture_origin = Vector2i(0, 48)
+8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-48, -144, 48, -144, 48, 48, -48, 48)
+
+[sub_resource type="TileSet" id="TileSet_1v104"]
+tile_size = Vector2i(96, 96)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_rjgdd")
 
 [node name="tml_grassypark_walls" type="TileMapLayer"]
+tile_set = SubResource("TileSet_1v104")
