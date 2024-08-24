@@ -8,10 +8,6 @@ var coin_count: int = 0
 func _ready():
 	update_coin_count_label()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func increase_coin_count():
 	coin_count += 1
 	update_coin_count_label()
@@ -19,3 +15,7 @@ func increase_coin_count():
 
 func update_coin_count_label():
 	lab_coin_count.text = "Coins: %d" % coin_count
+
+func update_player_health(_health):
+	pass
+	# var _hp = str(health)
