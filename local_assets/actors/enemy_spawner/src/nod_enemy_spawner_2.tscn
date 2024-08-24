@@ -6,7 +6,13 @@
 script = ExtResource("1_tl4ht")
 
 [node name="mrk_spawn1_2" type="Marker2D" parent="."]
-position = Vector2(1000, 500)
+position = Vector2(530, 480)
 
 [node name="mrk_spawn2_2" type="Marker2D" parent="."]
-position = Vector2(200, 500)
+position = Vector2(1325, 815)
+
+[node name="mrk_spawn3_2" type="Marker2D" parent="."]
+position = Vector2(3565, 845)
+
+[node name="mrk_spawn4_2" type="Marker2D" parent="."]
+position = Vector2(1565, 1310)

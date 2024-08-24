@@ -9,6 +9,8 @@ var enemy_ranged
 
 @onready var mrk_spawn1_2 = $mrk_spawn1_2
 @onready var mrk_spawn2_2 = $mrk_spawn2_2
+@onready var mrk_spawn3_2 = $mrk_spawn3_2
+@onready var mrk_spawn4_2 = $mrk_spawn4_2
 
 func _ready():
 	for i in get_children():
@@ -22,10 +24,20 @@ func _ready():
 	#	enemy.position = spawn.position
 	#	add_child(enemy)
 
+	#melee
 	enemy_melee = enemy_melee_scene.instantiate()
 	enemy_melee.position = mrk_spawn1_2.position
 	add_child(enemy_melee)
+
+	enemy_melee = enemy_melee_scene.instantiate()
+	enemy_melee.position = mrk_spawn2_2.position
+	add_child(enemy_melee)
+
+	enemy_melee = enemy_melee_scene.instantiate()
+	enemy_melee.position = mrk_spawn3_2.position
+	add_child(enemy_melee)
 	
+	#ranged
 	enemy_ranged = enemy_ranged_scene.instantiate()
-	enemy_ranged.position = mrk_spawn2_2.position
+	enemy_ranged.position = mrk_spawn4_2.position
 	add_child(enemy_ranged)

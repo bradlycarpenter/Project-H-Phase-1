@@ -8,6 +8,7 @@ func _ready():
 	rotation = direction.angle()
 
 func _physics_process(delta: float) -> void:
+	("test")
 	# Move the fireball in the specified direction
 	position += direction * speed * delta
 	# Handle out-of-bounds conditions if needed
