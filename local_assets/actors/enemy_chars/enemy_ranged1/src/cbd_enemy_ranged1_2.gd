@@ -1,19 +1,19 @@
 extends CharacterBody2D
 
 @export var coin_scene: PackedScene
-@export var fireball_scene : PackedScene
+@export var fireball_scene: PackedScene
 @export var damage_shader: Shader
 
 var speed: int = 85
 var player_chase: bool = false
-var players : Array = []
-var direction : Vector2
+var players: Array = []
+var direction: Vector2
 var last_flip_h: bool = false
 var health: int = 30
 var original_material: ShaderMaterial
 var shader_applied: bool = false
 
-var fireball_cooldown: float = 2.0  # 2 seconds cooldown between fireball attacks
+var fireball_cooldown: float = 2.0 # 2 seconds cooldown between fireball attacks
 var time_since_last_attack: float = 0.0
 
 @onready var ans_enemy_ranged1_2: AnimatedSprite2D = $nod_enemy_ranged1_2/ans_enemy_ranged1_2
@@ -120,7 +120,7 @@ func attack_player(target: CharacterBody2D):
 
 	# Calculate direction and set it on the fireball
 	var direction2 = (target.position - fireball_instance.position).normalized()
-	fireball_instance.direction = direction2  # Set the direction for the fireball
+	fireball_instance.direction = direction2 # Set the direction for the fireball
 
 	# Rotate the fireball towards the player
 	fireball_instance.rotation = direction2.angle()

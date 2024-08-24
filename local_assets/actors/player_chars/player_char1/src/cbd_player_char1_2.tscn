@@ -588,5 +588,9 @@ bus = &"SFX"
 [node name="tim_fts" type="Timer" parent="."]
 one_shot = true
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+
 [connection signal="body_entered" from="are_attacks_2" to="." method="_on_area_attacks_2_body_entered"]
 [connection signal="animation_finished" from="ant_player_char1" to="." method="_on_ant_player_char1_animation_finished"]
