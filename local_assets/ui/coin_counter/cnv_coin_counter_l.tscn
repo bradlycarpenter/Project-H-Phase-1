@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dsj4ykt03s0mq"]
+
+[node name="cnv_coin_counter_l" type="CanvasLayer"]
+
+[node name="lab_coin_count" type="Label" parent="."]
+offset_top = 622.0
+offset_right = 105.0
+offset_bottom = 656.0
