@@ -1,6 +1,7 @@
-[gd_scene load_steps=57 format=3 uid="uid://dfet0hikqtik8"]
+[gd_scene load_steps=58 format=3 uid="uid://dfet0hikqtik8"]
 
 [ext_resource type="Script" path="res://local_assets/actors/player_chars/player_char1/src/cbd_player_char1_2.gd" id="1_m7fu8"]
+[ext_resource type="Shader" path="res://local_assets/actors/enemy_chars/enemy_melee1/art/shaders/take_damage.gdshader" id="2_3k5ci"]
 [ext_resource type="Texture2D" uid="uid://b38h3d12l7vc7" path="res://local_assets/actors/player_chars/player_char1/art/idle/ss_player_char1_idle.png" id="2_rsa46"]
 [ext_resource type="Texture2D" uid="uid://bvlgdq5ju7h3i" path="res://local_assets/actors/player_chars/player_char1/art/attack/ss_player_char1_attacknovfx.png" id="2_rvire"]
 [ext_resource type="Texture2D" uid="uid://6gjrkowf43oq" path="res://local_assets/actors/player_chars/player_char1/art/death/ss_player_char1_death.png" id="3_d1bq4"]
@@ -530,6 +531,9 @@ stream_1/stream = ExtResource("13_l2utm")
 
 [node name="cbd_player_char1_2" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_m7fu8")
+speed = 30
+damage_shader = ExtResource("2_3k5ci")
+health = 50
 
 [node name="nod_player_char1_2" type="Node2D" parent="."]
 

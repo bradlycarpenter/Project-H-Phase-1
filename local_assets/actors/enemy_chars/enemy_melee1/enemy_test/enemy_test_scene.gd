@@ -9,9 +9,6 @@ func _ready():
 	update_coin_count_label()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func increase_coin_count():
 	coin_count += 1
 	update_coin_count_label()

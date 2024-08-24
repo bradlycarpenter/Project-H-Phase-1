@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var coin_scene: PackedScene
-
+@export var fireball_scene : PackedScene
 @export var damage_shader: Shader
 
 var speed: int = 85
@@ -13,8 +13,10 @@ var health: int = 30
 var original_material: ShaderMaterial
 var shader_applied: bool = false
 
-@onready var ans_enemy_ranged1_2: AnimatedSprite2D = $nod_enemy_ranged1_2/ans_enemy_ranged1_2
+var fireball_cooldown: float = 2.0  # 2 seconds cooldown between fireball attacks
+var time_since_last_attack: float = 0.0
 
+@onready var ans_enemy_ranged1_2: AnimatedSprite2D = $nod_enemy_ranged1_2/ans_enemy_ranged1_2
 @onready var lab_health = $lab_health
 
 func _movement(delta) -> void:
@@ -58,7 +60,7 @@ func take_damage(damage) -> void:
 			shader_applied = true
 			# Schedule to revert the material in the next frame
 			await get_tree().create_timer(0.075).timeout
-			ans_enemy_ranged1_2.material = original_material  # Fix here
+			ans_enemy_ranged1_2.material = original_material
 			shader_applied = false
 	health -= damage
 	if health <= 0:
@@ -90,9 +92,13 @@ func _physics_process(delta):
 	if player_chase:
 		_movement(delta)
 		_update_animation()
+		
+		time_since_last_attack -= delta
+		if time_since_last_attack <= 0 and players.size() > 0:
+			attack_player(players[0])
+			time_since_last_attack = fireball_cooldown
 	else:
 		ans_enemy_ranged1_2.stop()
-
 
 func _on_area_detection_area_2_body_entered(body):
 	if body.is_in_group("Player"):
@@ -106,3 +112,15 @@ func _on_area_detection_area_2_body_exited(body):
 			players.erase(body)
 			if players.size() == 0:
 				player_chase = false
+				
+func attack_player(target: CharacterBody2D):
+	var fireball_instance = fireball_scene.instantiate()
+	fireball_instance.position = global_position
+	get_parent().add_child(fireball_instance)
+
+	# Calculate direction and set it on the fireball
+	var direction2 = (target.position - fireball_instance.position).normalized()
+	fireball_instance.direction = direction2  # Set the direction for the fireball
+
+	# Rotate the fireball towards the player
+	fireball_instance.rotation = direction2.angle()
