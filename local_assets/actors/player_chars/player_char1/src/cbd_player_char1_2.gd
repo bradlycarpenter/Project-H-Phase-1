@@ -1,10 +1,8 @@
-
 extends CharacterBody2D
 
-var direction : Vector2
-var sword_sfx_playing : bool = false
-
-@export var speed : int = 30
+@export var speed : int
+@export var damage_shader: Shader
+@export var health: int
 
 @onready var ant_player_char1 : AnimationTree = $ant_player_char1
 @onready var nod_player_char1_2 : Node2D = $nod_player_char1_2
@@ -12,6 +10,14 @@ var sword_sfx_playing : bool = false
 @onready var asp_fts: AudioStreamPlayer = $asp_fts
 @onready var asp_swr: AudioStreamPlayer = $asp_swr
 @onready var tim_fts: Timer = $tim_fts
+@onready var cbd_player_char1_2 = $"."
+
+var direction : Vector2
+var sword_sfx_playing : bool = false
+
+var original_material: ShaderMaterial
+var shader_applied: bool = false
+
 # Audio
 # ______________________________________________________________________________
 func play_footsteps():
@@ -81,7 +87,23 @@ func _physics_process(delta):
 	play_footsteps()
 	play_slash()
 
-
 func _on_area_attacks_2_body_entered(body):
 	if body.is_in_group("Enemy"):
 		body.take_damage(30)
+
+func receive_damage(damage) -> void:
+	if damage_shader:
+		if not shader_applied:
+			# Apply the damage shader for one frame
+			var shader_material = ShaderMaterial.new()
+			shader_material.shader = damage_shader
+			cbd_player_char1_2.material = shader_material
+			shader_applied = true
+			# Schedule to revert the material in the next frame
+			await get_tree().create_timer(0.075).timeout
+			cbd_player_char1_2.material = original_material
+			shader_applied = false
+	health -= damage
+	print(health)
+	if health <= 0:
+		print("dead")

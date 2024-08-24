@@ -19,3 +19,6 @@ func increase_coin_count():
 
 func update_coin_count_label():
 	lab_coin_count.text = "Coins: %d" % coin_count
+
+func update_player_health(health):
+	var hp = str(health)
