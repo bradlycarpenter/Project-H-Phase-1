@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://sph4w7tmxc0e"
-path="res://.godot/imported/TM_Grass1.png-2f7f22605fd34b59bb57f36e83381988.ctex"
+path="res://.godot/imported/tm_grassypark2.png-2920843cc81cb545d65aa49643305c61.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://local_assets/environments/grassy park/art/TM_Grass1.png"
-dest_files=["res://.godot/imported/TM_Grass1.png-2f7f22605fd34b59bb57f36e83381988.ctex"]
+source_file="res://local_assets/environments/grassy park/art/tm_grassypark2.png"
+dest_files=["res://.godot/imported/tm_grassypark2.png-2920843cc81cb545d65aa49643305c61.ctex"]
 
 [params]
 

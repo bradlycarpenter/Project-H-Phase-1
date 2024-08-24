@@ -19,6 +19,16 @@ config/icon="res://icon.svg"
 
 buses/default_bus_layout="res://global_assets/audio_bus/default_bus_layout.tres"
 
+[file_customization]
+
+folder_colors={
+"res://global_assets/": "red",
+"res://local_assets/actors/": "purple",
+"res://local_assets/environments/": "orange",
+"res://local_assets/levels/": "yellow",
+"res://local_assets/ui/": "green"
+}
+
 [filesystem]
 
 import/blender/enabled=false

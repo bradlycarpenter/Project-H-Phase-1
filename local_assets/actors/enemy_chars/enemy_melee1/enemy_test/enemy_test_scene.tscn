@@ -21,3 +21,4 @@ script = ExtResource("4_4sgmy")
 [node name="asp_coin" type="AudioStreamPlayer" parent="GameManager"]
 stream = ExtResource("5_0xpje")
 volume_db = -10.0
+bus = &"SFX"
