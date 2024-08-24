@@ -3,8 +3,6 @@ extends Control
 @onready var margin_container: MarginContainer = $MarginContainer
 @onready var option_pause_menu: Option_pause_menu = $option_pause_menu
 
-
-
 func resume():
 	margin_container.visible = false
 	get_tree().paused = false
@@ -22,8 +20,6 @@ func testEsc():
 func change_a_scene_manually():
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://local_assets/ui/main_menu/src/main_menu.tscn")
-	
-
 
 func _on_resume_pressed() -> void:
 	resume()
