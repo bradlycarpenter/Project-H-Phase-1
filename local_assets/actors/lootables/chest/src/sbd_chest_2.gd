@@ -11,12 +11,11 @@ var chest_is_open : bool = false
 
 func _on_are_2_body_entered(_body: Node2D) -> void:
 	player_entered_area = true
-	print("Im in")
+	
 
 func _on_are_2_body_exited(_body: Node2D) -> void:
 	player_entered_area = false
-	print("Im out")
-	
+
 func _victory_menu() -> void:
 	await get_tree().create_timer(5.0).timeout
 	get_tree().paused = true
