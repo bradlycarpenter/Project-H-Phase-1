@@ -3,7 +3,7 @@ extends Control
 
 @onready var label = $HBoxContainer/Label
 @onready var button = $HBoxContainer/Button
-@export var action_name : String = "up1"
+@export var action_name : String
 
 func set_action_name() -> void:
 	label.text = "Unassigned"
@@ -17,12 +17,14 @@ func set_action_name() -> void:
 			label.text = "Move Left"
 		"p1_right": #Move Right
 			label.text = "Move Right"
-		#"attack": Mouse Attack TODO: InputEventMouseButton
+		"p1_use": #use
+			label.text = "Interact"
+		#"p1_attack1": #Mouse Attack
 			#label.text = "Attack"
 
 func set_text_for_key() -> void:
 	var action_events = InputMap.action_get_events(action_name)
-	var action_event = action_events[0]
+	var action_event =action_events[0]
 	var action_keycode = OS.get_keycode_string(action_event.physical_keycode)
 	button.text = "%s" % action_keycode
 
@@ -48,8 +50,11 @@ func rebind_action_key(event) -> void:
 	set_text_for_key()
 	set_action_name()
 
-func _unhandled_key_input(event):
-	rebind_action_key(event)
+func _unhandled_key_input(event: InputEvent):
+	if event is InputEventMouseButton:
+		rebind_action_key(event)
+	elif event is InputEventKey:
+		rebind_action_key(event)
 	button.button_pressed = false
 
 func _ready():
