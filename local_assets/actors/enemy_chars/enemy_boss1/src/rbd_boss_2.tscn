@@ -1,10 +1,26 @@
-[gd_scene load_steps=8 format=3 uid="uid://4swy7wvms1g7"]
+[gd_scene load_steps=15 format=3 uid="uid://4swy7wvms1g7"]
 
 [ext_resource type="Texture2D" uid="uid://r3yne77vnfce" path="res://local_assets/actors/enemy_chars/enemy_boss1/art/BigBoss1SpriteSheet.png" id="1_rph6m"]
+[ext_resource type="Script" path="res://local_assets/actors/enemy_chars/enemy_boss1/src/rbd_boss_2.gd" id="1_sxwu5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_00hq3"]
 radius = 65.0
 height = 154.0
+
+[sub_resource type="Animation" id="Animation_eicqf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("spr_2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_dcveh"]
 resource_name = "front_idle"
@@ -22,21 +38,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
-}
-
-[sub_resource type="Animation" id="Animation_eicqf"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("spr_2:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_hsg1c"]
@@ -83,7 +84,33 @@ _data = {
 "side_walk": SubResource("Animation_n6oji")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1ljok"]
+animation = &"side_idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tr6jv"]
+animation = &"side_walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vyau6"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5gdvt"]
+advance_mode = 2
+advance_condition = &"is_moving"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2ium6"]
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_5nufh"]
+states/Start/position = Vector2(214, 105)
+states/side_idle/node = SubResource("AnimationNodeAnimation_1ljok")
+states/side_idle/position = Vector2(376, 101)
+states/side_walk/node = SubResource("AnimationNodeAnimation_tr6jv")
+states/side_walk/position = Vector2(603, 100)
+transitions = ["Start", "side_idle", SubResource("AnimationNodeStateMachineTransition_vyau6"), "side_idle", "side_walk", SubResource("AnimationNodeStateMachineTransition_5gdvt"), "side_walk", "side_idle", SubResource("AnimationNodeStateMachineTransition_2ium6")]
+
 [node name="rbd_boss_2" type="RigidBody2D"]
+script = ExtResource("1_sxwu5")
 
 [node name="spr_2" type="Sprite2D" parent="."]
 texture = ExtResource("1_rph6m")
@@ -100,3 +127,9 @@ debug_color = Color(5.77569e-07, 0.646085, 0.245453, 0.42)
 libraries = {
 "": SubResource("AnimationLibrary_vr6rx")
 }
+
+[node name="ani_t" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_5nufh")
+anim_player = NodePath("../ani_p")
+parameters/conditions/idle = false
+parameters/conditions/is_moving = true
