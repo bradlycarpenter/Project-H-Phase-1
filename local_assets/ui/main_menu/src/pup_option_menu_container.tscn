@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dirbsyidpd2qh"]
 
 [ext_resource type="PackedScene" uid="uid://cf2hbr7q0taij" path="res://local_assets/ui/main_menu/src/audio_slider_settings.tscn" id="1_6qmqt"]
-[ext_resource type="PackedScene" uid="uid://dv2n67vtdlboy" path="res://local_assets/ui/main_menu/src/hotkey_rebind_button.tscn" id="2_tsqsf"]
+[ext_resource type="PackedScene" uid="uid://yqign3o5u5ca" path="res://local_assets/ui/main_menu/src/rebind_settings.tscn" id="2_i7f0n"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_65aps"]
 
@@ -122,39 +122,19 @@ theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 
-[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Controls/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Controls/MarginContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Controls/MarginContainer/ScrollContainer"]
-layout_mode = 2
-theme_override_constants/separation = 64
-
-[node name="HSeparator" type="HSeparator" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="TabContainer/Controls/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 theme_override_styles/separator = SubResource("StyleBoxEmpty_65aps")
 
-[node name="Hotkey_Rebind_Button" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_tsqsf")]
+[node name="rebind_settings" parent="TabContainer/Controls/MarginContainer/VBoxContainer" instance=ExtResource("2_i7f0n")]
 layout_mode = 2
-action_name = "p1_up"
+size_flags_vertical = 3
 
-[node name="Hotkey_Rebind_Button2" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_tsqsf")]
-layout_mode = 2
-action_name = "p1_down"
-
-[node name="Hotkey_Rebind_Button3" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_tsqsf")]
-layout_mode = 2
-action_name = "p1_left"
-
-[node name="Hotkey_Rebind_Button4" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_tsqsf")]
-layout_mode = 2
-action_name = "p1_right"
-
-[node name="Hotkey_Rebind_Button5" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_tsqsf")]
-layout_mode = 2
-action_name = "p1_use"
-
-[node name="HSeparator2" type="HSeparator" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="TabContainer/Controls/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 theme_override_styles/separator = SubResource("StyleBoxEmpty_fjbvb")
