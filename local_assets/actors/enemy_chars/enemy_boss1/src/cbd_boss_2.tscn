@@ -1,8 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://4swy7wvms1g7"]
+[gd_scene load_steps=18 format=3 uid="uid://4swy7wvms1g7"]
 
 [ext_resource type="Script" path="res://local_assets/actors/enemy_chars/enemy_boss1/src/cbd_boss_2.gd" id="1_5gq0p"]
 [ext_resource type="Texture2D" uid="uid://r3yne77vnfce" path="res://local_assets/actors/enemy_chars/enemy_boss1/art/BigBoss1SpriteSheet.png" id="1_mluai"]
 [ext_resource type="Script" path="res://local_assets/actors/enemy_chars/enemy_boss1/src/smc_boss.gd" id="3_16t3v"]
+[ext_resource type="Script" path="res://global_assets/scripts/state_machine/enemy_idle.gd" id="4_qjnun"]
+[ext_resource type="Script" path="res://global_assets/scripts/state_machine/enemy_follow.gd" id="5_61du2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_00hq3"]
 radius = 65.0
@@ -122,6 +124,7 @@ region_rect = Rect2(0, 0, 384, 384)
 [node name="csh_2" type="CollisionShape2D" parent="."]
 visible = false
 shape = SubResource("CapsuleShape2D_00hq3")
+disabled = true
 debug_color = Color(5.77569e-07, 0.646085, 0.245453, 0.42)
 
 [node name="ani_p" type="AnimationPlayer" parent="."]
@@ -132,8 +135,17 @@ libraries = {
 [node name="ani_t" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_5nufh")
 anim_player = NodePath("../ani_p")
-parameters/conditions/idle = false
-parameters/conditions/is_moving = true
+parameters/conditions/idle = true
+parameters/conditions/is_moving = false
 
-[node name="smc_boss" type="Node" parent="."]
+[node name="smc_boss" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_16t3v")
+initial_state = NodePath("follow")
+
+[node name="idle" type="Node" parent="smc_boss" node_paths=PackedStringArray("enemy")]
+script = ExtResource("4_qjnun")
+enemy = NodePath("../..")
+
+[node name="follow" type="Node" parent="smc_boss" node_paths=PackedStringArray("enemy")]
+script = ExtResource("5_61du2")
+enemy = NodePath("../..")

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1at6g2i4edg0"]
+
+[ext_resource type="PackedScene" uid="uid://4swy7wvms1g7" path="res://local_assets/actors/enemy_chars/enemy_boss1/src/cbd_boss_2.tscn" id="1_jtjwy"]
+[ext_resource type="PackedScene" uid="uid://dfet0hikqtik8" path="res://local_assets/actors/player_chars/player_char1/src/cbd_player_char1_2.tscn" id="2_f2pxh"]
+
+[node name="EnemyBoss1Test" type="Node2D"]
+
+[node name="cbd_boss_2" parent="." instance=ExtResource("1_jtjwy")]
+position = Vector2(553, 250)
+
+[node name="cbd_player_char1_2" parent="." instance=ExtResource("2_f2pxh")]
+position = Vector2(294, 258)
