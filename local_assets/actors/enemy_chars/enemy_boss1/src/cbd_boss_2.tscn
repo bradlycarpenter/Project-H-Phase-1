@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://4swy7wvms1g7"]
+[gd_scene load_steps=19 format=3 uid="uid://4swy7wvms1g7"]
 
 [ext_resource type="Script" path="res://local_assets/actors/enemy_chars/enemy_boss1/src/cbd_boss_2.gd" id="1_5gq0p"]
 [ext_resource type="Texture2D" uid="uid://r3yne77vnfce" path="res://local_assets/actors/enemy_chars/enemy_boss1/art/BigBoss1SpriteSheet.png" id="1_mluai"]
@@ -79,10 +79,28 @@ tracks/0/keys = {
 "values": [8, 9, 10, 11]
 }
 
+[sub_resource type="Animation" id="Animation_sh24p"]
+resource_name = "side_attack"
+length = 1.6
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("spr_2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [12, 13, 14, 15, 16, 17, 18, 19]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vr6rx"]
 _data = {
 "RESET": SubResource("Animation_eicqf"),
 "front_idle": SubResource("Animation_dcveh"),
+"side_attack": SubResource("Animation_sh24p"),
 "side_idle": SubResource("Animation_hsg1c"),
 "side_walk": SubResource("Animation_n6oji")
 }

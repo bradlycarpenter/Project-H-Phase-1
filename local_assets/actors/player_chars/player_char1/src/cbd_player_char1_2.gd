@@ -1,5 +1,4 @@
 extends CharacterBody2D
-
 @export var speed : int
 @export var damage_shader: Shader
 @export var health: int
