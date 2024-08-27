@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://4swy7wvms1g7"]
+[gd_scene load_steps=16 format=3 uid="uid://4swy7wvms1g7"]
 
-[ext_resource type="Texture2D" uid="uid://r3yne77vnfce" path="res://local_assets/actors/enemy_chars/enemy_boss1/art/BigBoss1SpriteSheet.png" id="1_rph6m"]
-[ext_resource type="Script" path="res://local_assets/actors/enemy_chars/enemy_boss1/src/rbd_boss_2.gd" id="1_sxwu5"]
+[ext_resource type="Script" path="res://local_assets/actors/enemy_chars/enemy_boss1/src/cbd_boss_2.gd" id="1_5gq0p"]
+[ext_resource type="Texture2D" uid="uid://r3yne77vnfce" path="res://local_assets/actors/enemy_chars/enemy_boss1/art/BigBoss1SpriteSheet.png" id="1_mluai"]
+[ext_resource type="Script" path="res://local_assets/actors/enemy_chars/enemy_boss1/src/smc_boss.gd" id="3_16t3v"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_00hq3"]
 radius = 65.0
@@ -109,11 +110,11 @@ states/side_walk/node = SubResource("AnimationNodeAnimation_tr6jv")
 states/side_walk/position = Vector2(603, 100)
 transitions = ["Start", "side_idle", SubResource("AnimationNodeStateMachineTransition_vyau6"), "side_idle", "side_walk", SubResource("AnimationNodeStateMachineTransition_5gdvt"), "side_walk", "side_idle", SubResource("AnimationNodeStateMachineTransition_2ium6")]
 
-[node name="rbd_boss_2" type="RigidBody2D"]
-script = ExtResource("1_sxwu5")
+[node name="cbd_boss_2" type="CharacterBody2D"]
+script = ExtResource("1_5gq0p")
 
 [node name="spr_2" type="Sprite2D" parent="."]
-texture = ExtResource("1_rph6m")
+texture = ExtResource("1_mluai")
 hframes = 4
 vframes = 8
 region_rect = Rect2(0, 0, 384, 384)
@@ -133,3 +134,6 @@ tree_root = SubResource("AnimationNodeStateMachine_5nufh")
 anim_player = NodePath("../ani_p")
 parameters/conditions/idle = false
 parameters/conditions/is_moving = true
+
+[node name="smc_boss" type="Node" parent="."]
+script = ExtResource("3_16t3v")
