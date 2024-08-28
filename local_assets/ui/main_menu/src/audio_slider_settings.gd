@@ -6,7 +6,7 @@ var bus_index : int = 0
 @onready var audio_num_lbl := $HBoxContainer/Audio_Num_Lbl
 @onready var h_slider := $HBoxContainer/HSlider
 
-@export_enum("Master","Music","SFX") var bus_name : String
+@export_enum("Master","Music","SFX","MenuSFX") var bus_name : String
 
 func on_value_changed(value : float) -> void:
 	AudioServer.set_bus_volume_db(bus_index, linear_to_db(value))
