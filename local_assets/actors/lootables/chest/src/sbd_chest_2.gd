@@ -17,7 +17,7 @@ func _on_are_2_body_exited(_body: Node2D) -> void:
 	player_entered_area = false
 
 func _victory_menu() -> void:
-	await get_tree().create_timer(5.0).timeout
+	await get_tree().create_timer(3.9).timeout
 	get_tree().paused = true
 	get_tree().change_scene_to_file(victory_node)
 
