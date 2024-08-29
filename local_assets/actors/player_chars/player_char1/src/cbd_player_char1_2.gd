@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var damage_shader: Shader
 @export var health: int
 
+@onready var ans_player_char1_2 = $nod_player_char1_2/ans_player_char1_2
 @onready var ant_player_char1 : AnimationTree = $ant_player_char1
 @onready var nod_player_char1_2 : Node2D = $nod_player_char1_2
 @onready var are_player_char1_2 : Area2D   = $are_attacks_2
@@ -11,12 +12,15 @@ extends CharacterBody2D
 @onready var asp_swr: AudioStreamPlayer = $asp_swr
 @onready var tim_fts: Timer = $tim_fts
 @onready var cbd_player_char1_2 = $"."
+@onready var lab_health = $lab_health
+@onready var tim_death = $tim_death
 
 var direction : Vector2
 var sword_sfx_playing : bool = false
 
 var original_material: ShaderMaterial
 var shader_applied: bool = false
+var is_dead: bool = false
 
 # Audio
 # ______________________________________________________________________________
@@ -39,6 +43,12 @@ func flip_sprite(dir: Vector2) -> void:
 		are_player_char1_2.position.x = sign(dir.x) * 48
 
 func update_animation_parameters() -> void:
+	if is_dead:
+		ant_player_char1["parameters/conditions/is_dead"] = true
+		ant_player_char1["parameters/conditions/swing"] = false
+		ant_player_char1["parameters/conditions/is_moving"] = false
+		ant_player_char1["parameters/conditions/idle"] = false
+		return
 	if velocity == Vector2.ZERO:
 		ant_player_char1["parameters/conditions/idle"] = true
 		ant_player_char1["parameters/conditions/is_moving"] = false
@@ -50,6 +60,7 @@ func update_animation_parameters() -> void:
 	else:
 		ant_player_char1["parameters/conditions/swing"] = false
 # Value Checking
+
 # ______________________________________________________________________________
 func is_attacking():
 	var attacking : bool = false
@@ -74,18 +85,23 @@ func _on_ant_player_char1_animation_finished(_attack: StringName) -> void:
 # ______________________________________________________________________________
 func _ready():
 	ant_player_char1.active = true
+	# Save the original material if needed
+	if ans_player_char1_2.material and ans_player_char1_2.material is ShaderMaterial:
+		original_material = ans_player_char1_2.material
 
 func _process(_delta):
+	lab_health.text = str(health)
 	update_animation_parameters()
 
 func _physics_process(delta):
-	direction = check_direction()
-	velocity = check_velocity(delta, direction)
-	move_and_slide()
-	if direction.x != 0:
-		flip_sprite(direction)
-	play_footsteps()
-	play_slash()
+	if !is_dead:
+		direction = check_direction()
+		velocity = check_velocity(delta, direction)
+		move_and_slide()
+		if direction.x != 0:
+			flip_sprite(direction)
+		play_footsteps()
+		play_slash()
 
 func _on_area_attacks_2_body_entered(body):
 	if body.is_in_group("Enemy"):
@@ -105,5 +121,10 @@ func receive_damage(damage) -> void:
 			shader_applied = false
 	health -= damage
 	print(health)
-	if health <= 0:
-		print("dead")
+	if health <= 0 and not is_dead:
+		is_dead = true
+		print(str(is_dead))
+		tim_death.start()
+
+func _on_tim_death_timeout():
+	get_tree().paused = true
