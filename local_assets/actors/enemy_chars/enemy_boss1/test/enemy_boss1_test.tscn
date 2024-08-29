@@ -9,4 +9,4 @@
 position = Vector2(553, 250)
 
 [node name="cbd_player_char1_2" parent="." instance=ExtResource("2_f2pxh")]
-position = Vector2(294, 258)
+position = Vector2(184, 260)

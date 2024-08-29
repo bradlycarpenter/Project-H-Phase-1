@@ -92,7 +92,7 @@ func _physics_process(delta):
 	if player_chase:
 		_movement(delta)
 		_update_animation()
-		
+
 		time_since_last_attack -= delta
 		if time_since_last_attack <= 0 and players.size() > 0:
 			attack_player(players[0])
@@ -112,7 +112,7 @@ func _on_area_detection_area_2_body_exited(body):
 			players.erase(body)
 			if players.size() == 0:
 				player_chase = false
-				
+
 func attack_player(target: CharacterBody2D):
 	var fireball_instance = fireball_scene.instantiate()
 	fireball_instance.position = global_position

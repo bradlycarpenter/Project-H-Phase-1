@@ -514,7 +514,7 @@ states/idle/position = Vector2(346, 128)
 states/move/node = SubResource("AnimationNodeAnimation_0px57")
 states/move/position = Vector2(539, 128)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_kwbax"), "idle", "move", SubResource("AnimationNodeStateMachineTransition_ci7nc"), "move", "idle", SubResource("AnimationNodeStateMachineTransition_5ji4n"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_7ap0k"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_0a80f"), "attack", "move", SubResource("AnimationNodeStateMachineTransition_spcmj"), "move", "attack", SubResource("AnimationNodeStateMachineTransition_8g38m")]
-graph_offset = Vector2(-29, -154)
+graph_offset = Vector2(-159, -50)
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_vjqcp"]
 streams_count = 5
