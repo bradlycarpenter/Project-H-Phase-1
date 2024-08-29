@@ -47,11 +47,11 @@ func stop_moving() -> void:
 	animation["parameters/conditions/is_moving"] = false
 	animation["parameters/conditions/idle"] = true
 
-func _on_detection_area_entered(body: Node2D, ) -> void:
+func _on_detection_area_entered(body: Node2D) -> void:
 	detect_player(body)
 	start_moving()
 
-func _on_detection_area_exited(body: Node2D, ) -> void:
+func _on_detection_area_exited(body: Node2D) -> void:
 	undetect_player(body)
 	stop_moving()
 
