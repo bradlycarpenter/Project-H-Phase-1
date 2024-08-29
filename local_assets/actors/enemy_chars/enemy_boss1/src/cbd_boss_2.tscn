@@ -350,5 +350,6 @@ debug_color = Color(0.529015, 0.413517, 1, 0.42)
 
 [connection signal="body_entered" from="are_chase_area_2" to="." method="_on_detection_area_entered"]
 [connection signal="body_exited" from="are_chase_area_2" to="." method="_on_detection_area_exited"]
+[connection signal="body_entered" from="are_hitboxes_2" to="." method="_player_hit"]
 [connection signal="body_entered" from="are_attacking_area_2" to="." method="_melee_range_entered"]
 [connection signal="body_exited" from="are_attacking_area_2" to="." method="_on_melee_range_exited"]

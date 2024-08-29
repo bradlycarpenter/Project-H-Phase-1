@@ -60,6 +60,10 @@ func _melee_range_entered(_body: Node2D) -> void:
 func _on_melee_range_exited(_body: Node2D) -> void:
 	animation["parameters/conditions/is_attacking"] = false
 
+func _player_hit(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		body.receive_damage(100)
+
 func _ready() -> void:
 	animation.active = true
 	animation["parameters/conditions/idle"] = true
