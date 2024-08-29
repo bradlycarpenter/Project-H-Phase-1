@@ -292,10 +292,12 @@ size = Vector2(75, 79)
 radius = 19.0
 height = 116.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cqslf"]
-size = Vector2(134, 264)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2ahl6"]
+radius = 90.0
+height = 250.0
 
 [node name="cbd_boss_2" type="CharacterBody2D"]
+z_index = 7
 script = ExtResource("1_5gq0p")
 
 [node name="spr_2" type="Sprite2D" parent="."]
@@ -341,10 +343,9 @@ shape = SubResource("CapsuleShape2D_dn47l")
 debug_color = Color(0.952941, 0, 0.0235294, 0.423529)
 
 [node name="are_attacking_area_2" type="Area2D" parent="."]
-position = Vector2(-128.045, 0)
 
 [node name="csh_attacking_area_2" type="CollisionShape2D" parent="are_attacking_area_2"]
-shape = SubResource("RectangleShape2D_cqslf")
+shape = SubResource("CapsuleShape2D_2ahl6")
 debug_color = Color(0.529015, 0.413517, 1, 0.42)
 
 [connection signal="body_entered" from="are_chase_area_2" to="." method="_on_detection_area_entered"]
