@@ -4,7 +4,7 @@ extends CharacterBody2D
 
 @export var damage_shader: Shader
 
-var speed: int = 85
+var speed: int = 100
 var player_chase: bool = false
 var players : Array = []
 var direction : Vector2
@@ -107,3 +107,8 @@ func _on_area_detection_area_2_body_exited(body):
 			players.erase(body)
 			if players.size() == 0:
 				player_chase = false
+
+
+func _on_are_attack_2_body_entered(body):
+	if body.is_in_group("Player"):
+		body.receive_damage(10)

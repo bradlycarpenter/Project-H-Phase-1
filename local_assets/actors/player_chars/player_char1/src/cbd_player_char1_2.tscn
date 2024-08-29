@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://dfet0hikqtik8"]
+[gd_scene load_steps=64 format=3 uid="uid://dfet0hikqtik8"]
 
 [ext_resource type="Script" path="res://local_assets/actors/player_chars/player_char1/src/cbd_player_char1_2.gd" id="1_m7fu8"]
 [ext_resource type="Shader" path="res://local_assets/actors/enemy_chars/enemy_melee1/art/shaders/take_damage.gdshader" id="2_3k5ci"]
@@ -470,6 +470,15 @@ _data = {
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gtmh2"]
 animation = &"attack"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tjsq1"]
+animation = &"death"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qdaeg"]
+animation = &"death"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_c10nf"]
+animation = &"death"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uall3"]
 animation = &"idle"
 
@@ -505,16 +514,34 @@ advance_condition = &"is_moving"
 advance_mode = 2
 advance_condition = &"swing"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nnddo"]
+advance_mode = 2
+advance_condition = &"is_dead"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xdnls"]
+advance_mode = 2
+advance_condition = &"is_dead"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_h6oa7"]
+advance_mode = 2
+advance_condition = &"is_dead"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_1awh0"]
 states/Start/position = Vector2(187, 94)
 states/attack/node = SubResource("AnimationNodeAnimation_gtmh2")
 states/attack/position = Vector2(445, 5)
+states/death/node = SubResource("AnimationNodeAnimation_c10nf")
+states/death/position = Vector2(346, 219.641)
+"states/death 2/node" = SubResource("AnimationNodeAnimation_tjsq1")
+"states/death 2/position" = Vector2(539, 219.641)
+"states/death 3/node" = SubResource("AnimationNodeAnimation_qdaeg")
+"states/death 3/position" = Vector2(445, -75.7914)
 states/idle/node = SubResource("AnimationNodeAnimation_uall3")
 states/idle/position = Vector2(346, 128)
 states/move/node = SubResource("AnimationNodeAnimation_0px57")
 states/move/position = Vector2(539, 128)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_kwbax"), "idle", "move", SubResource("AnimationNodeStateMachineTransition_ci7nc"), "move", "idle", SubResource("AnimationNodeStateMachineTransition_5ji4n"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_7ap0k"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_0a80f"), "attack", "move", SubResource("AnimationNodeStateMachineTransition_spcmj"), "move", "attack", SubResource("AnimationNodeStateMachineTransition_8g38m")]
-graph_offset = Vector2(-29, -154)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_kwbax"), "idle", "move", SubResource("AnimationNodeStateMachineTransition_ci7nc"), "move", "idle", SubResource("AnimationNodeStateMachineTransition_5ji4n"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_7ap0k"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_0a80f"), "attack", "move", SubResource("AnimationNodeStateMachineTransition_spcmj"), "move", "attack", SubResource("AnimationNodeStateMachineTransition_8g38m"), "idle", "death", SubResource("AnimationNodeStateMachineTransition_nnddo"), "move", "death 2", SubResource("AnimationNodeStateMachineTransition_xdnls"), "attack", "death 3", SubResource("AnimationNodeStateMachineTransition_h6oa7")]
+graph_offset = Vector2(-163.685, -7.78596)
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_vjqcp"]
 streams_count = 5
@@ -533,7 +560,7 @@ stream_1/stream = ExtResource("13_l2utm")
 script = ExtResource("1_m7fu8")
 speed = 30
 damage_shader = ExtResource("2_3k5ci")
-health = 50
+health = 30
 
 [node name="nod_player_char1_2" type="Node2D" parent="."]
 
@@ -571,6 +598,7 @@ active = false
 tree_root = SubResource("AnimationNodeStateMachine_1awh0")
 anim_player = NodePath("../anp_player_char1")
 parameters/conditions/idle = false
+parameters/conditions/is_dead = false
 parameters/conditions/is_moving = false
 parameters/conditions/swing = false
 
@@ -587,5 +615,14 @@ bus = &"SFX"
 [node name="tim_fts" type="Timer" parent="."]
 one_shot = true
 
+[node name="lab_health" type="Label" parent="."]
+offset_left = -1.0
+offset_top = -77.0
+offset_right = 39.0
+offset_bottom = -54.0
+
+[node name="tim_death" type="Timer" parent="."]
+
 [connection signal="body_entered" from="are_attacks_2" to="." method="_on_area_attacks_2_body_entered"]
 [connection signal="animation_finished" from="ant_player_char1" to="." method="_on_ant_player_char1_animation_finished"]
+[connection signal="timeout" from="tim_death" to="." method="_on_tim_death_timeout"]
