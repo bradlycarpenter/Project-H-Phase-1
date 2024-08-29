@@ -7,12 +7,15 @@ extends Control
 @onready var exit_button: Button = $MarginContainer/HBoxContainer/VBoxContainer/exit_button
 @onready var margin_container := $MarginContainer
 @onready var pup_option_menu: SettingMenu = $pup_option_menu
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $MusicStreamPlayer/AudioStreamPlayer2D
 
 
 const LEVEL_1 = preload("res://local_assets/levels/level1/src/level1.tscn")
 
 
 func on_start_pressed() -> void:
+	audio_stream_player_2d.play()
+	await get_tree().create_timer(0.2).timeout
 	get_tree().change_scene_to_packed(LEVEL_1)
 	
 func on_exit_pressed() -> void:
@@ -22,6 +25,7 @@ func on_option_pressed() -> void:
 	margin_container.visible = false
 	pup_option_menu.set_process(true)
 	pup_option_menu.visible = true
+	audio_stream_player_2d.play()
 
 func on_exit_option_menu() -> void:
 	margin_container.visible = true

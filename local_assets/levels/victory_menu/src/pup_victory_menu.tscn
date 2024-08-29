@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dypry7v5htku7"]
+[gd_scene load_steps=3 format=3 uid="uid://dypry7v5htku7"]
 
-[ext_resource type="Script" path="res://local_assets/levels/victory_menu/pup_victory_menu.gd" id="1_amkpa"]
+[ext_resource type="Script" path="res://local_assets/levels/victory_menu/src/pup_victory_menu.gd" id="1_amkpa"]
+[ext_resource type="AudioStream" uid="uid://csn3mhd0p3m21" path="res://local_assets/levels/victory_menu/audio/A_Victory_menu.ogg" id="2_fmf5p"]
 
 [node name="pup_victory_menu" type="Control"]
 process_mode = 3
@@ -37,5 +38,13 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Return to Main Menu"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"MenuSFX"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="AudioStreamPlayer"]
+stream = ExtResource("2_fmf5p")
+volume_db = 20.0
+bus = &"MenuSFX"
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/exit_button" to="." method="_on_exit_button_pressed"]
