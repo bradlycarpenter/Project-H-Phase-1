@@ -548,7 +548,7 @@ sprite_frames = SubResource("SpriteFrames_lv1jq")
 animation = &"attack_vfx"
 
 [node name="csh_hitbox_2" type="CollisionShape2D" parent="."]
-position = Vector2(1, 33)
+position = Vector2(1, 44)
 shape = SubResource("CapsuleShape2D_0pg31")
 debug_color = Color(0, 1, 0, 0.2)
 
