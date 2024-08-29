@@ -17,7 +17,6 @@ func flip_sprite() -> void:
 		sprite.flip_h = false
 
 func flip_hitboxes(dir) -> void:
-	attacking_area.position.x = sign(dir.x) * 128
 	for hitbox in hitboxes:
 		hitbox.position.x = sign(dir.x) * 124
 
