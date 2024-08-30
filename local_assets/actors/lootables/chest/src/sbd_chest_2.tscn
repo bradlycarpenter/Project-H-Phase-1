@@ -39,8 +39,8 @@ animations = [{
 radius = 6.69169
 
 [node name="sbd_chest_2" type="StaticBody2D"]
-collision_layer = 4
-collision_mask = 5
+collision_layer = 8
+collision_mask = 8
 script = ExtResource("1_w050j")
 
 [node name="ans_chest_2" type="AnimatedSprite2D" parent="."]

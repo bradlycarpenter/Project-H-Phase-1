@@ -277,7 +277,7 @@ states/side_attack/position = Vector2(376, -192)
 states/side_death/node = SubResource("AnimationNodeAnimation_qyj0c")
 states/side_death/position = Vector2(794, -192)
 states/side_idle/node = SubResource("AnimationNodeAnimation_1ljok")
-states/side_idle/position = Vector2(376, 101)
+states/side_idle/position = Vector2(376, 105)
 states/side_walk/node = SubResource("AnimationNodeAnimation_tr6jv")
 states/side_walk/position = Vector2(794, 105)
 transitions = ["Start", "side_idle", SubResource("AnimationNodeStateMachineTransition_vyau6"), "side_idle", "side_walk", SubResource("AnimationNodeStateMachineTransition_5gdvt"), "side_walk", "side_idle", SubResource("AnimationNodeStateMachineTransition_2ium6"), "side_idle", "side_attack", SubResource("AnimationNodeStateMachineTransition_yqr7h"), "side_attack", "side_idle", SubResource("AnimationNodeStateMachineTransition_1vkln"), "side_walk", "side_attack", SubResource("AnimationNodeStateMachineTransition_aoggj"), "side_attack", "side_walk", SubResource("AnimationNodeStateMachineTransition_xmm6u"), "side_attack", "side_death", SubResource("AnimationNodeStateMachineTransition_emtxp"), "side_idle", "side_death", SubResource("AnimationNodeStateMachineTransition_moh1q"), "side_walk", "side_death", SubResource("AnimationNodeStateMachineTransition_tehu0")]
@@ -299,8 +299,8 @@ height = 250.0
 
 [node name="cbd_boss_2" type="CharacterBody2D" groups=["Enemy"]]
 z_index = 7
-collision_layer = 7
-collision_mask = 7
+collision_layer = 5
+collision_mask = 4
 script = ExtResource("1_5gq0p")
 coin_scene = ExtResource("2_kotal")
 
@@ -310,11 +310,12 @@ hframes = 4
 vframes = 8
 region_rect = Rect2(0, 0, 384, 384)
 
-[node name="csh_2" type="CollisionShape2D" parent="."]
+[node name="csh_2" type="CollisionShape2D" parent="." groups=["Enemy"]]
 shape = SubResource("CapsuleShape2D_00hq3")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="ani_p" type="AnimationPlayer" parent="."]
+active = false
 libraries = {
 "": SubResource("AnimationLibrary_vr6rx")
 }

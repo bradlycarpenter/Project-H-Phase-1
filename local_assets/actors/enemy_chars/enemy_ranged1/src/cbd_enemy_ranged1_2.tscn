@@ -126,6 +126,8 @@ height = 120.0
 
 [node name="cbd_enemy_ranged1_2" type="CharacterBody2D" groups=["Enemy"]]
 scale = Vector2(0.73, 0.73)
+collision_layer = 3
+collision_mask = 2
 script = ExtResource("1_dr38g")
 coin_scene = ExtResource("2_5ynpn")
 fireball_scene = ExtResource("3_gbwui")

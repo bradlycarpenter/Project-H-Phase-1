@@ -26,6 +26,7 @@ func flip_hitboxes(dir) -> void:
 func detect_player(body) -> void:
 	if body.is_in_group("Player"):
 		if !players_detected.has(body):
+			print(body)
 			players_detected.append(body)
 			chase_player = true
 
@@ -51,11 +52,13 @@ func stop_moving() -> void:
 
 func _on_detection_area_entered(body: Node2D) -> void:
 	detect_player(body)
-	start_moving()
+	if chase_player:
+		start_moving()
 
 func _on_detection_area_exited(body: Node2D) -> void:
 	undetect_player(body)
-	stop_moving()
+	if !chase_player:
+		stop_moving()
 
 func _melee_range_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
@@ -83,10 +86,10 @@ func take_damage(damage) -> void:
 		queue_free()
 
 func _ready() -> void:
-	animation.active = true
 	animation["parameters/conditions/idle"] = true
 
 func _physics_process(delta: float) -> void:
 	movement(delta)
 	flip_sprite()
 	flip_hitboxes(direction)
+	print(players_detected)
