@@ -1,3 +1,4 @@
+class_name Game_Manager
 extends Node
 
 @onready var lab_coin_count = $"../cnv_coin_counter_l/lab_coin_count"
@@ -14,6 +15,7 @@ func increase_coin_count():
 	asp_coin.play()
 
 func update_coin_count_label():
+	pass
 	lab_coin_count.text = "Coins: %d" % coin_count
 
 func update_player_health(_health):
