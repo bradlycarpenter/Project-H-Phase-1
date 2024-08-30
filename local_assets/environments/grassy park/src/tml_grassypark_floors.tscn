@@ -31,12 +31,9 @@ texture_region_size = Vector2i(96, 96)
 0:5/0 = 0
 1:5/0 = 0
 2:5/0 = 0
-2:5/0/custom_data_0 = true
 3:5/0 = 0
-3:5/0/custom_data_0 = true
 5:5/0 = 0
 6:5/0 = 0
-6:5/0/custom_data_0 = true
 7:5/0 = 0
 0:6/0 = 0
 1:6/0 = 0
@@ -46,9 +43,6 @@ texture_region_size = Vector2i(96, 96)
 
 [sub_resource type="TileSet" id="TileSet_gqwmq"]
 tile_size = Vector2i(96, 96)
-physics_layer_0/collision_layer = 1
-custom_data_layer_0/name = "is_on_lava"
-custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_t2mvj")
 
 [node name="tml_grassypark" type="TileMapLayer"]
