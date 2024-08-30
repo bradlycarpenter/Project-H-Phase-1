@@ -86,6 +86,8 @@ radius = 12.6667
 
 [node name="are_coin_2" type="Area2D"]
 scale = Vector2(0.6, 0.6)
+collision_layer = 17
+collision_mask = 17
 audio_bus_override = true
 audio_bus_name = &"SFX"
 script = ExtResource("1_liisv")

@@ -67,7 +67,7 @@ func is_attacking():
 	if ant_player_char1["parameters/playback"].get_current_node() == "attack":
 		return attacking
 	else:
-		return !attacking 
+		return !attacking
 
 func check_direction() -> Vector2:
 	return Input.get_vector("p1_left", "p1_right", "p1_up", "p1_down")
