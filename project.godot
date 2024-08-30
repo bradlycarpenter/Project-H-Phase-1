@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Project-H-Fixed"
-run/main_scene="res://local_assets/ui/main_menu/src/main_menu.tscn"
+run/main_scene="res://local_assets/actors/enemy_chars/enemy_melee1/enemy_test/enemy_test_scene.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -57,7 +57,7 @@ p1_right={
 }
 p1_attack1={
 "deadzone": 0.5,
-"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(171, 12),"global_position":Vector2(175, 53),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(150, 16),"global_position":Vector2(159, 62),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
 ]
 }
 p1_pause={

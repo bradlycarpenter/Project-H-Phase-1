@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bfnjj63j24r7o"]
+[gd_scene load_steps=24 format=3 uid="uid://bfnjj63j24r7o"]
 
 [ext_resource type="Script" path="res://local_assets/actors/enemy_chars/enemy_melee1/src/cbd_enemy_melee1_2.gd" id="1_67sb4"]
 [ext_resource type="Texture2D" uid="uid://ckujoketijgph" path="res://local_assets/actors/enemy_chars/enemy_melee1/art/move/ss_enemy_side.png" id="2_6g1ah"]
@@ -122,11 +122,15 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oc0uv"]
-radius = 416.441
+radius = 335.843
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w5b5p"]
 radius = 21.0
 height = 130.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0pa5g"]
+radius = 26.0274
+height = 142.466
 
 [node name="cbd_enemy_melee1_2" type="CharacterBody2D" groups=["Enemy"]]
 scale = Vector2(0.73, 0.73)
@@ -141,13 +145,22 @@ sprite_frames = SubResource("SpriteFrames_otlqa")
 animation = &"death"
 
 [node name="are_detection_area_2" type="Area2D" parent="nod_enemy_melee1_2"]
+visible = false
 
 [node name="csh_detection_radius_2" type="CollisionShape2D" parent="nod_enemy_melee1_2/are_detection_area_2"]
 shape = SubResource("CircleShape2D_oc0uv")
 
 [node name="csh_hitbox_2" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -3)
+visible = false
+position = Vector2(-1, -3.00001)
 shape = SubResource("CapsuleShape2D_w5b5p")
+
+[node name="are_attack_2" type="Area2D" parent="."]
+position = Vector2(-7.34852e-07, -8.81822e-06)
+
+[node name="csh_attack_2" type="CollisionShape2D" parent="are_attack_2"]
+position = Vector2(-2.73973, 4.1096)
+shape = SubResource("CapsuleShape2D_0pa5g")
 
 [node name="lab_health" type="Label" parent="."]
 offset_left = -12.0
@@ -158,3 +171,4 @@ metadata/_edit_use_anchors_ = true
 
 [connection signal="body_entered" from="nod_enemy_melee1_2/are_detection_area_2" to="." method="_on_area_detection_area_2_body_entered"]
 [connection signal="body_exited" from="nod_enemy_melee1_2/are_detection_area_2" to="." method="_on_area_detection_area_2_body_exited"]
+[connection signal="body_entered" from="are_attack_2" to="." method="_on_are_attack_2_body_entered"]

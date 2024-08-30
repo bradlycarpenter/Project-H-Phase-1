@@ -26,6 +26,7 @@ position = Vector2(3584, 1019)
 victory_node = "res://local_assets/levels/victory_menu/pup_victory_menu.tscn"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="pause_menu" parent="CanvasLayer" instance=ExtResource("2_g3m71")]
 

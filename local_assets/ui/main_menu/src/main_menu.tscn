@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dbt7y8gw23iq8"]
+[gd_scene load_steps=5 format=3 uid="uid://dbt7y8gw23iq8"]
 
 [ext_resource type="Script" path="res://local_assets/ui/main_menu/src/main_menu.gd" id="1_nn26d"]
 [ext_resource type="PackedScene" uid="uid://cbx2n121vhxdh" path="res://local_assets/ui/main_menu/src/pup_option_menu.tscn" id="2_kvfmr"]
 [ext_resource type="Script" path="res://local_assets/ui/main_menu/src/pup_option_menu.gd" id="3_gsqtq"]
+[ext_resource type="AudioStream" uid="uid://blbnpyhtal6xi" path="res://local_assets/ui/main_menu/audio/A_Main Menu.ogg" id="4_k24rs"]
 
 [node name="main_menu" type="Control"]
 process_mode = 3
@@ -84,3 +85,9 @@ script = ExtResource("3_gsqtq")
 [node name="MusicStreamPlayer" type="AudioStreamPlayer" parent="."]
 volume_db = -19.676
 autoplay = true
+bus = &"MenuSFX"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="MusicStreamPlayer"]
+stream = ExtResource("4_k24rs")
+volume_db = 20.0
+bus = &"MenuSFX"

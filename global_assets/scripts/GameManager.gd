@@ -1,3 +1,4 @@
+class_name Game_Manager
 extends Node
 
 @onready var lab_coin_count = $"../cnv_coin_counter_l/lab_coin_count"
