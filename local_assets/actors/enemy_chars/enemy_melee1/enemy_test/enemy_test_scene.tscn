@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://drbojmx48b3l5"]
+[gd_scene load_steps=7 format=3 uid="uid://drbojmx48b3l5"]
 
 [ext_resource type="PackedScene" uid="uid://co2j7py00qwi5" path="res://local_assets/actors/enemy_spawner/src/nod_enemy_spawner_2.tscn" id="1_s2odt"]
 [ext_resource type="PackedScene" uid="uid://dfet0hikqtik8" path="res://local_assets/actors/player_chars/player_char1/src/cbd_player_char1_2.tscn" id="2_x5kgx"]
 [ext_resource type="PackedScene" uid="uid://dsj4ykt03s0mq" path="res://local_assets/ui/coin_counter/cnv_coin_counter_l.tscn" id="4_fya5r"]
 [ext_resource type="Script" path="res://global_assets/scripts/GameManager.gd" id="4_k75ud"]
 [ext_resource type="AudioStream" uid="uid://ba4ijc5520ga" path="res://local_assets/actors/lootables/coin/audio/A_Coin.ogg" id="5_0xpje"]
+[ext_resource type="PackedScene" uid="uid://ccbh2j41hm6yv" path="res://local_assets/actors/lootables/chest/src/sbd_chest_2.tscn" id="6_i6udm"]
 
 [node name="enemy_test_scene" type="Node"]
 
@@ -12,6 +13,8 @@
 
 [node name="cbd_player_char1_2" parent="." instance=ExtResource("2_x5kgx")]
 position = Vector2(562, 109)
+collision_layer = 7
+collision_mask = 5
 
 [node name="cnv_coin_counter_l" parent="." instance=ExtResource("4_fya5r")]
 
@@ -21,3 +24,8 @@ script = ExtResource("4_k75ud")
 [node name="asp_coin" type="AudioStreamPlayer" parent="GameManager"]
 stream = ExtResource("5_0xpje")
 volume_db = -10.0
+
+[node name="sbd_chest_2" parent="." instance=ExtResource("6_i6udm")]
+position = Vector2(237, 113)
+coins_collected = 2
+victory_node = "res://local_assets/levels/victory_menu/src/pup_victory_menu.tscn"

@@ -7,7 +7,7 @@
 [node name="Level1" type="Node"]
 
 [node name="cbd_player_char1_2" parent="." instance=ExtResource("1_egkof")]
-position = Vector2(545, 291)
+position = Vector2(250, 302)
 collision_layer = 7
 collision_mask = 5
 
@@ -16,5 +16,6 @@ position = Vector2(724, 297)
 victory_node = "res://local_assets/levels/victory_menu/src/pup_victory_menu.tscn"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="pause_menu" parent="CanvasLayer" instance=ExtResource("2_g3m71")]
