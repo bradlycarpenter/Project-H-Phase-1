@@ -2,10 +2,12 @@ extends Node2D
 
 var enemy_melee_scene := preload("res://local_assets/actors/enemy_chars/enemy_melee1/src/cbd_enemy_melee1_2.tscn")
 var enemy_ranged_scene := preload("res://local_assets/actors/enemy_chars/enemy_ranged1/src/cbd_enemy_ranged1_2.tscn")
+var enemy_boss_scene := preload("res://local_assets/actors/enemy_chars/enemy_boss1/src/cbd_boss_2.tscn")
 
 var spawn_points : Array = []
 var enemy_melee
 var enemy_ranged
+var enemy_boss
 
 @onready var mrk_spawn1_2 = $mrk_spawn1_2
 @onready var mrk_spawn2_2 = $mrk_spawn2_2
@@ -22,9 +24,9 @@ func _ready():
 	#	enemy.position = spawn.position
 	#	add_child(enemy)
 
-	enemy_melee = enemy_melee_scene.instantiate()
-	enemy_melee.position = mrk_spawn1_2.position
-	add_child(enemy_melee)
+	enemy_boss = enemy_boss_scene.instantiate()
+	enemy_boss.position = mrk_spawn1_2.position
+	add_child(enemy_boss)
 	
 	enemy_ranged = enemy_ranged_scene.instantiate()
 	enemy_ranged.position = mrk_spawn2_2.position

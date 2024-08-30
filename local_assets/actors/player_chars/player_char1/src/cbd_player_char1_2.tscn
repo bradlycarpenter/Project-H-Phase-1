@@ -557,6 +557,7 @@ stream_0/stream = ExtResource("12_mpo66")
 stream_1/stream = ExtResource("13_l2utm")
 
 [node name="cbd_player_char1_2" type="CharacterBody2D" groups=["Player"]]
+collision_layer = 5
 script = ExtResource("1_m7fu8")
 speed = 30
 damage_shader = ExtResource("2_3k5ci")

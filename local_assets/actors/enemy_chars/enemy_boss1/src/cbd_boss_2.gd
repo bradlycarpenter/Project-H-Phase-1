@@ -1,10 +1,13 @@
 extends CharacterBody2D
 
+@export var coin_scene: PackedScene
+
 @onready var animation : AnimationTree = $ani_t
 @onready var hitboxes : Array = [$are_hitboxes_2/csh_fists_2,$are_hitboxes_2/csh_impact_2]
 @onready var sprite : Sprite2D = $spr_2
 @onready var attacking_area : Area2D = $are_attacking_area_2
 
+var health: int = 30
 var chase_player = false
 var players_detected: Array = []
 var speed : int = 200
@@ -54,15 +57,30 @@ func _on_detection_area_exited(body: Node2D) -> void:
 	undetect_player(body)
 	stop_moving()
 
-func _melee_range_entered(_body: Node2D) -> void:
-	animation["parameters/conditions/is_attacking"] = true
+func _melee_range_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		animation["parameters/conditions/is_moving"] = false
+		animation["parameters/conditions/is_attacking"] = true
 
 func _on_melee_range_exited(_body: Node2D) -> void:
 	animation["parameters/conditions/is_attacking"] = false
 
 func _player_hit(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		body.receive_damage(100)
+		body.receive_damage(1)
+
+func take_damage(damage) -> void:
+	print("Taking damage: ", damage)
+	health -= damage
+	if health <= 0:
+		var coin_instance_1 = coin_scene.instantiate()
+		coin_instance_1.position = global_position + Vector2(-10, 0)
+		get_parent().add_child(coin_instance_1)
+		
+		var coin_instance_2 = coin_scene.instantiate()
+		coin_instance_2.position = global_position + Vector2(10, 0)
+		get_parent().add_child(coin_instance_2)
+		queue_free()
 
 func _ready() -> void:
 	animation.active = true
