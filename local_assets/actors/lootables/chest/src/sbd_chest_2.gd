@@ -2,13 +2,14 @@ extends StaticBody2D
 
 var player_entered_area : bool = false
 var chest_is_open : bool = false
-var coins_collected : int = 2
+@export var coins_collected : int
+
+@onready var game_manager: Game_Manager = $"../GameManager"
 
 @export_file("*.tscn") var victory_node
 
 @onready var ans_chest_2: AnimatedSprite2D = $ans_chest_2
 @onready var asp_chest_open: AudioStreamPlayer = $asp_chest_open
-@onready var game_manager: = $"../GameManager"
 
 func _on_are_2_body_entered(_body: Node2D) -> void:
 	player_entered_area = true
