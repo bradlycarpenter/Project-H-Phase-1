@@ -26,7 +26,6 @@ func flip_hitboxes(dir) -> void:
 func detect_player(body) -> void:
 	if body.is_in_group("Player"):
 		if !players_detected.has(body):
-			print(body)
 			players_detected.append(body)
 			chase_player = true
 
@@ -70,20 +69,14 @@ func _on_melee_range_exited(_body: Node2D) -> void:
 
 func _player_hit(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		body.receive_damage(1)
+		body.receive_damage(30)
 
 func take_damage(damage) -> void:
-	print("Taking damage: ", damage)
 	health -= damage
 	if health <= 0:
-		var coin_instance_1 = coin_scene.instantiate()
-		coin_instance_1.position = global_position + Vector2(-10, 0)
-		get_parent().add_child(coin_instance_1)
-		
-		var coin_instance_2 = coin_scene.instantiate()
-		coin_instance_2.position = global_position + Vector2(10, 0)
-		get_parent().add_child(coin_instance_2)
-		queue_free()
+		call_deferred("_spawn_coin", Vector2(-10, 0))
+		call_deferred("_spawn_coin", Vector2(10, 0))
+		call_deferred("queue_free")
 
 func _ready() -> void:
 	animation["parameters/conditions/idle"] = true
@@ -92,4 +85,8 @@ func _physics_process(delta: float) -> void:
 	movement(delta)
 	flip_sprite()
 	flip_hitboxes(direction)
-	print(players_detected)
+
+func _spawn_coin(offset: Vector2) -> void:
+	var coin_instance = coin_scene.instantiate()
+	coin_instance.position = global_position + offset
+	get_parent().add_child(coin_instance)
