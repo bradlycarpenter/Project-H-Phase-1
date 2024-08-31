@@ -1,0 +1,359 @@
+[gd_scene load_steps=31 format=3 uid="uid://4swy7wvms1g7"]
+
+[ext_resource type="Script" path="res://local_assets/actors/enemy_chars/enemy_boss1/src/cbd_boss_2.gd" id="1_5gq0p"]
+[ext_resource type="Texture2D" uid="uid://r3yne77vnfce" path="res://local_assets/actors/enemy_chars/enemy_boss1/art/BigBoss1SpriteSheet.png" id="1_mluai"]
+[ext_resource type="PackedScene" uid="uid://dvjimwcupfp1m" path="res://local_assets/actors/lootables/coin/src/are_coin_2.tscn" id="2_kotal"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_00hq3"]
+radius = 65.0
+height = 154.0
+
+[sub_resource type="Animation" id="Animation_eicqf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("spr_2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("are_hitboxes_2/csh_fists_2:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("are_hitboxes_2/csh_impact_2:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_dcveh"]
+resource_name = "front_idle"
+length = 0.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("spr_2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_sh24p"]
+resource_name = "side_attack"
+length = 1.6
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("spr_2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [12, 13, 14, 15, 16, 17, 18, 19]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("are_hitboxes_2/csh_fists_2:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("are_hitboxes_2/csh_impact_2:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_btuq5"]
+resource_name = "side_death"
+length = 2.6
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("spr_2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 31]
+}
+
+[sub_resource type="Animation" id="Animation_hsg1c"]
+resource_name = "side_idle"
+length = 0.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("spr_2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("are_hitboxes_2/csh_fists_2:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("are_hitboxes_2/csh_impact_2:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_n6oji"]
+resource_name = "side_walk"
+length = 0.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("spr_2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("are_hitboxes_2/csh_fists_2:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("are_hitboxes_2/csh_impact_2:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vr6rx"]
+_data = {
+"RESET": SubResource("Animation_eicqf"),
+"front_idle": SubResource("Animation_dcveh"),
+"side_attack": SubResource("Animation_sh24p"),
+"side_death": SubResource("Animation_btuq5"),
+"side_idle": SubResource("Animation_hsg1c"),
+"side_walk": SubResource("Animation_n6oji")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4jxnj"]
+animation = &"side_attack"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qyj0c"]
+animation = &"side_death"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1ljok"]
+animation = &"side_idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tr6jv"]
+animation = &"side_walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vyau6"]
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5gdvt"]
+advance_mode = 2
+advance_condition = &"is_moving"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2ium6"]
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yqr7h"]
+advance_mode = 2
+advance_condition = &"is_attacking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1vkln"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_aoggj"]
+advance_mode = 2
+advance_condition = &"is_attacking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xmm6u"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_emtxp"]
+advance_mode = 2
+advance_condition = &"is_dead"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_moh1q"]
+advance_mode = 2
+advance_condition = &"is_dead"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tehu0"]
+advance_mode = 2
+advance_condition = &"is_dead"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_5nufh"]
+states/End/position = Vector2(1277, 59)
+states/Start/position = Vector2(214, 105)
+states/side_attack/node = SubResource("AnimationNodeAnimation_4jxnj")
+states/side_attack/position = Vector2(376, -192)
+states/side_death/node = SubResource("AnimationNodeAnimation_qyj0c")
+states/side_death/position = Vector2(794, -192)
+states/side_idle/node = SubResource("AnimationNodeAnimation_1ljok")
+states/side_idle/position = Vector2(376, 105)
+states/side_walk/node = SubResource("AnimationNodeAnimation_tr6jv")
+states/side_walk/position = Vector2(794, 105)
+transitions = ["Start", "side_idle", SubResource("AnimationNodeStateMachineTransition_vyau6"), "side_idle", "side_walk", SubResource("AnimationNodeStateMachineTransition_5gdvt"), "side_walk", "side_idle", SubResource("AnimationNodeStateMachineTransition_2ium6"), "side_idle", "side_attack", SubResource("AnimationNodeStateMachineTransition_yqr7h"), "side_attack", "side_idle", SubResource("AnimationNodeStateMachineTransition_1vkln"), "side_walk", "side_attack", SubResource("AnimationNodeStateMachineTransition_aoggj"), "side_attack", "side_walk", SubResource("AnimationNodeStateMachineTransition_xmm6u"), "side_attack", "side_death", SubResource("AnimationNodeStateMachineTransition_emtxp"), "side_idle", "side_death", SubResource("AnimationNodeStateMachineTransition_moh1q"), "side_walk", "side_death", SubResource("AnimationNodeStateMachineTransition_tehu0")]
+graph_offset = Vector2(-81, -318.479)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_87gwm"]
+radius = 299.007
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_06xvs"]
+size = Vector2(75, 79)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dn47l"]
+radius = 19.0
+height = 116.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2ahl6"]
+radius = 90.0
+height = 250.0
+
+[node name="cbd_boss_2" type="CharacterBody2D" groups=["Enemy"]]
+z_index = 7
+collision_layer = 5
+collision_mask = 4
+script = ExtResource("1_5gq0p")
+coin_scene = ExtResource("2_kotal")
+
+[node name="spr_2" type="Sprite2D" parent="."]
+texture = ExtResource("1_mluai")
+hframes = 4
+vframes = 8
+region_rect = Rect2(0, 0, 384, 384)
+
+[node name="csh_2" type="CollisionShape2D" parent="." groups=["Enemy"]]
+shape = SubResource("CapsuleShape2D_00hq3")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="ani_p" type="AnimationPlayer" parent="."]
+active = false
+libraries = {
+"": SubResource("AnimationLibrary_vr6rx")
+}
+
+[node name="ani_t" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_5nufh")
+anim_player = NodePath("../ani_p")
+parameters/conditions/idle = true
+parameters/conditions/is_attacking = false
+parameters/conditions/is_dead = false
+parameters/conditions/is_moving = false
+
+[node name="are_chase_area_2" type="Area2D" parent="."]
+
+[node name="are_detection_radius_2" type="CollisionShape2D" parent="are_chase_area_2"]
+shape = SubResource("CircleShape2D_87gwm")
+
+[node name="are_hitboxes_2" type="Area2D" parent="."]
+
+[node name="csh_fists_2" type="CollisionShape2D" parent="are_hitboxes_2"]
+position = Vector2(-124, 44)
+shape = SubResource("RectangleShape2D_06xvs")
+debug_color = Color(0.952941, 0, 0.0235294, 0.423529)
+
+[node name="csh_impact_2" type="CollisionShape2D" parent="are_hitboxes_2"]
+position = Vector2(-128, 89)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_dn47l")
+debug_color = Color(0.952941, 0, 0.0235294, 0.423529)
+
+[node name="are_attacking_area_2" type="Area2D" parent="."]
+
+[node name="csh_attacking_area_2" type="CollisionShape2D" parent="are_attacking_area_2"]
+shape = SubResource("CapsuleShape2D_2ahl6")
+debug_color = Color(0.529015, 0.413517, 1, 0.42)
+
+[connection signal="body_entered" from="are_chase_area_2" to="." method="_on_detection_area_entered"]
+[connection signal="body_exited" from="are_chase_area_2" to="." method="_on_detection_area_exited"]
+[connection signal="body_entered" from="are_hitboxes_2" to="." method="_player_hit"]
+[connection signal="body_entered" from="are_attacking_area_2" to="." method="_melee_range_entered"]
+[connection signal="body_exited" from="are_attacking_area_2" to="." method="_on_melee_range_exited"]

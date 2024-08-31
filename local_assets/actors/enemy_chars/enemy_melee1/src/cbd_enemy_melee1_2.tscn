@@ -134,6 +134,8 @@ height = 142.466
 
 [node name="cbd_enemy_melee1_2" type="CharacterBody2D" groups=["Enemy"]]
 scale = Vector2(0.73, 0.73)
+collision_layer = 3
+collision_mask = 2
 script = ExtResource("1_67sb4")
 coin_scene = ExtResource("2_urfeu")
 damage_shader = ExtResource("2_sipwt")
