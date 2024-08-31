@@ -11,13 +11,23 @@ config_version=5
 [application]
 
 config/name="Project-H-Fixed"
-run/main_scene="res://local_assets/actors/enemy_chars/enemy_melee1/enemy_test/enemy_test_scene.tscn"
+run/main_scene="res://local_assets/levels/level1/src/level1.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
 [audio]
 
 buses/default_bus_layout="res://global_assets/audio_bus/default_bus_layout.tres"
+
+[file_customization]
+
+folder_colors={
+"res://global_assets/": "red",
+"res://local_assets/actors/": "purple",
+"res://local_assets/environments/": "orange",
+"res://local_assets/levels/": "yellow",
+"res://local_assets/ui/": "green"
+}
 
 [filesystem]
 

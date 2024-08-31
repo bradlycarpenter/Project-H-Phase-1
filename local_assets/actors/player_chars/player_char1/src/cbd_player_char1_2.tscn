@@ -186,9 +186,8 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0pg31"]
-radius = 13.0
-height = 90.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h4t4k"]
+height = 48.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ep4mb"]
 radius = 69.0
@@ -575,7 +574,8 @@ sprite_frames = SubResource("SpriteFrames_lv1jq")
 animation = &"attack_vfx"
 
 [node name="csh_hitbox_2" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_0pg31")
+position = Vector2(1, 40)
+shape = SubResource("CapsuleShape2D_h4t4k")
 debug_color = Color(0, 1, 0, 0.2)
 
 [node name="are_attacks_2" type="Area2D" parent="."]
@@ -622,6 +622,10 @@ offset_right = 39.0
 offset_bottom = -54.0
 
 [node name="tim_death" type="Timer" parent="."]
+
+[node name="cam_2" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
 
 [connection signal="body_entered" from="are_attacks_2" to="." method="_on_area_attacks_2_body_entered"]
 [connection signal="animation_finished" from="ant_player_char1" to="." method="_on_ant_player_char1_animation_finished"]

@@ -81,7 +81,10 @@ func check_velocity(delta, dir: Vector2) -> Vector2:
 
 func _on_ant_player_char1_animation_finished(_attack: StringName) -> void:
 	sword_sfx_playing = false
-# Gameplay
+
+func _on_area_attacks_2_body_entered(body):
+	if body.is_in_group("Enemy"):
+		body.take_damage(30)# Gameplay
 # ______________________________________________________________________________
 func _ready():
 	ant_player_char1.active = true
@@ -103,9 +106,6 @@ func _physics_process(delta):
 		play_footsteps()
 		play_slash()
 
-func _on_area_attacks_2_body_entered(body):
-	if body.is_in_group("Enemy"):
-		body.take_damage(30)
 
 func receive_damage(damage) -> void:
 	if damage_shader:

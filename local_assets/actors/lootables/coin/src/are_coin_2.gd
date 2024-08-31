@@ -2,7 +2,7 @@ extends Area2D
 
 @onready var ans_coin_2 = $ans_coin_2
 
-@onready var game_manager = get_tree().root.get_node("enemy_test_scene/GameManager")
+@onready var game_manager = get_tree().root.get_node("Level1/GameManager")
 
 func coin_picked_up():
 	game_manager.increase_coin_count()
