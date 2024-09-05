@@ -35,9 +35,10 @@ func _ready():
 	enemy_melee.position = mrk_spawn2_2.position
 	add_child(enemy_melee)
 
-	enemy_melee = enemy_melee_scene.instantiate()
-	enemy_melee.position = mrk_spawn3_2.position
-	add_child(enemy_melee)
+	#boss
+	enemy_boss = enemy_boss_scene.instantiate()
+	enemy_boss.position = mrk_spawn3_2.position
+	add_child(enemy_boss)
 	
 	#ranged
 	enemy_ranged = enemy_ranged_scene.instantiate()

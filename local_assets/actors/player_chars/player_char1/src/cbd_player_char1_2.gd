@@ -84,7 +84,7 @@ func _on_ant_player_char1_animation_finished(_attack: StringName) -> void:
 
 func _on_area_attacks_2_body_entered(body):
 	if body.is_in_group("Enemy"):
-		body.take_damage(30)# Gameplay
+		body.take_damage(10)# Gameplay
 # ______________________________________________________________________________
 func _ready():
 	ant_player_char1.active = true

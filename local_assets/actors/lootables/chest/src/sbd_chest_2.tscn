@@ -42,6 +42,7 @@ radius = 6.69169
 collision_layer = 8
 collision_mask = 8
 script = ExtResource("1_w050j")
+coins_collected = 5
 
 [node name="ans_chest_2" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_s2itx")
