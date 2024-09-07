@@ -9,7 +9,7 @@ var player_chase: bool = false
 var players: Array = []
 var direction: Vector2
 var last_flip_h: bool = false
-var health: int = 30
+var health: int = 10
 var original_material: ShaderMaterial
 var shader_applied: bool = false
 

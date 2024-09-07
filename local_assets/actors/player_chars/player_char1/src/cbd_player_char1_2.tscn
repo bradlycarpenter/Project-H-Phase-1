@@ -624,7 +624,6 @@ offset_bottom = -54.0
 [node name="tim_death" type="Timer" parent="."]
 
 [node name="cam_2" type="Camera2D" parent="."]
-position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
 [connection signal="body_entered" from="are_attacks_2" to="." method="_on_area_attacks_2_body_entered"]
