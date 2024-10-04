@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://drbojmx48b3l5"]
+[gd_scene load_steps=8 format=3 uid="uid://drbojmx48b3l5"]
 
 [ext_resource type="PackedScene" uid="uid://co2j7py00qwi5" path="res://local_assets/actors/enemy_spawner/src/nod_enemy_spawner_2.tscn" id="1_s2odt"]
 [ext_resource type="PackedScene" uid="uid://dfet0hikqtik8" path="res://local_assets/actors/player_chars/player_char1/src/cbd_player_char1_2.tscn" id="2_x5kgx"]
@@ -6,8 +6,32 @@
 [ext_resource type="Script" path="res://global_assets/scripts/GameManager.gd" id="4_k75ud"]
 [ext_resource type="AudioStream" uid="uid://ba4ijc5520ga" path="res://local_assets/actors/lootables/coin/audio/A_Coin.ogg" id="5_0xpje"]
 [ext_resource type="PackedScene" uid="uid://ccbh2j41hm6yv" path="res://local_assets/actors/lootables/chest/src/sbd_chest_2.tscn" id="6_i6udm"]
+[ext_resource type="Script" path="res://local_assets/actors/enemy_chars/enemy_melee1/enemy_test/idle_timer.gd" id="7_3ib6y"]
 
 [node name="enemy_test_scene" type="Node"]
+script = ExtResource("7_3ib6y")
+
+[node name="IdleTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="PopupTimer" type="Timer" parent="."]
+
+[node name="ReturnToMenuPopup" type="PopupPanel" parent="."]
+size = Vector2i(197, 100)
+
+[node name="Label" type="Label" parent="ReturnToMenuPopup"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.5
+offset_top = -11.5
+offset_right = 94.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Returning to Main Menu"
 
 [node name="nod_enemy_spawner_2" parent="." instance=ExtResource("1_s2odt")]
 
@@ -29,3 +53,5 @@ volume_db = -10.0
 position = Vector2(237, 113)
 coins_collected = 2
 victory_node = "res://local_assets/levels/victory_menu/src/pup_victory_menu.tscn"
+
+[connection signal="timeout" from="IdleTimer" to="IdleTimer" method="_on_IdleTimer_timeout"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dbt7y8gw23iq8"]
+[gd_scene load_steps=6 format=3 uid="uid://dbt7y8gw23iq8"]
 
 [ext_resource type="Script" path="res://local_assets/ui/main_menu/src/main_menu.gd" id="1_nn26d"]
 [ext_resource type="PackedScene" uid="uid://cbx2n121vhxdh" path="res://local_assets/ui/main_menu/src/pup_option_menu.tscn" id="2_kvfmr"]
+[ext_resource type="Texture2D" uid="uid://ce5u55xhptkk8" path="res://local_assets/ui/main_menu/art/Untitled_Artwork.png" id="2_tncnw"]
 [ext_resource type="Script" path="res://local_assets/ui/main_menu/src/pup_option_menu.gd" id="3_gsqtq"]
 [ext_resource type="AudioStream" uid="uid://blbnpyhtal6xi" path="res://local_assets/ui/main_menu/audio/A_Main Menu.ogg" id="4_k24rs"]
 
@@ -15,14 +16,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_nn26d")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -35,6 +28,10 @@ theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_tncnw")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 60
@@ -44,7 +41,6 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Project-H"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -54,6 +50,8 @@ alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_constants/separation = 35
 alignment = 1
 
